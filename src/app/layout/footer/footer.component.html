@@ -1,0 +1,19 @@
+<footer class="footer">
+    <div class="container footer-content">
+        <div class="footer-logo">
+            <h2>Fernando <span>Hernández Lázaro</span></h2>
+            <p>{{ languageService.isSpanish() ? 'Desarrollador Full Stack Junior creando experiencias web asombrosas.' : 'Junior Full Stack Developer crafting beautiful experiences on the web.' }}</p>
+        </div>
+        <div class="footer-social">
+            <h4>{{ languageService.isSpanish() ? 'Sígueme' : 'Follow Me' }}</h4>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/fernando-hern%C3%A1ndez-l%C3%A1zaro-060b192b1/" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/ferherlaz" target="_blank" class="social-icon github"><i class="fab fa-github"></i></a>
+                <a href="https://wa.me/34659282968" target="_blank" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; <span>{{ currentYear }}</span> | <span>{{ languageService.isSpanish() ? 'Creado con' : 'Created with' }}</span> <i class="fas fa-heart"></i> <span>{{ languageService.isSpanish() ? 'por' : 'by' }}</span> Fernando <span>Hernández Lázaro</span>. <span>{{ languageService.isSpanish() ? 'Todos los derechos reservados.' : 'All rights reserved.' }}</span></p>
+    </div>
+</footer>

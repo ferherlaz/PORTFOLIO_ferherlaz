@@ -1,0 +1,38 @@
+<section id="about" class="about">
+    <div class="container about-content">
+        <div class="about-image">
+            <div class="img-box" data-tilt>
+                <div class="image-clipper">
+                    <img src="./img/yo2.png" alt="About Fernando">
+                </div>
+            </div>
+        </div>
+        <div class="about-text">
+            <div class="section-title">
+                <h2>{{ languageService.isSpanish() ? 'Sobre ' : 'About ' }}<span>{{ languageService.isSpanish() ? 'Mí' : 'Me' }}</span></h2>
+                <span class="bg-text">{{ languageService.isSpanish() ? 'PERFIL' : 'ABOUT' }}</span>
+            </div>
+            <h4>{{ languageService.isSpanish() ? '32 Años | ESPAÑA | Desarrollador Full Stack Junior' : '32 Years | SPAIN | Junior Full Stack Developer' }}</h4>
+            <p>
+                {{ languageService.isSpanish() ? 'Hola, soy ' : 'Hello, I\'m ' }}<span><strong>Fernando Hernández Lázaro</strong></span>{{ languageService.isSpanish() ? ', desarrollador web en España. Me apasiona crear experiencias digitales atractivas, intuitivas y bien pensadas.' : ', a web developer in Spain. I\'m passionate about creating attractive, intuitive, and well-thought-out digital experiences.' }}
+            </p>
+            <p>
+                {{ languageService.isSpanish() ? 'Destaco por mi capacidad de análisis y resolución de problemas, abordando proyectos complejos de forma estructurada y eficiente. Me gusta transformar ideas en soluciones claras, cuidando cada detalle y manteniendo siempre un enfoque organizado.' : 'I stand out for my analytical and problem-solving capacity, approaching complex projects in a structured and efficient way. I like to transform ideas into clear solutions, taking care of every detail and always maintaining an organized approach.' }}
+            </p>
+            <div class="about-stats">
+                <div class="stat-box">
+                    <i class="fas fa-code"></i>
+                    <span>{{ languageService.isSpanish() ? 'Diseño Web' : 'Web Design' }}</span>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-database"></i>
+                    <span>{{ languageService.isSpanish() ? 'Bases de Datos' : 'Databases' }}</span>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>{{ languageService.isSpanish() ? 'Interfaces Útiles' : 'Responsive UI' }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

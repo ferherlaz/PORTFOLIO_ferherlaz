@@ -1,0 +1,31 @@
+<section id="home" class="hero">
+    <div class="container hero-content">
+        <div class="hero-text">
+            <p class="greeting">{{ languageService.isSpanish() ? '¡Hola, Bienvenido a mi portfolio!' : 'Hello, Welcome to my portfolio!' }}</p>
+            <h1>
+                {{ languageService.isSpanish() ? 'Soy ' : 'I\'m ' }}<span>Fernando</span><br>Hernández Lázaro
+            </h1>
+            <h3 class="typing-text">{{ languageService.isSpanish() ? 'Desarrollador Full Stack Junior' : 'Junior Full Stack Developer' }}</h3>
+            <p class="description">
+                {{ languageService.isSpanish() ? 'Me enfoco en el desarrollo de interfaces optimizadas y mantenibles, con especial atención a la usabilidad y el rendimiento. Combino criterio técnico y sensibilidad por el diseño para construir soluciones a medida, adaptadas a las necesidades reales de cada proyecto.' : 'I focus on the development of optimized and maintainable interfaces, with special attention to usability and performance. I combine technical criteria and design sensitivity to build custom solutions, adapted to the real needs of each project.' }}
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">{{ languageService.isSpanish() ? 'Contáctame' : 'Contact Me' }}</a>
+                <a download href="./curriculum/CV FERNANDO HERNÁNDEZ LÁZARO.pdf" class="btn btn-secondary">
+                    <i class="fas fa-download"></i> <span>{{ languageService.isSpanish() ? 'Descargar CV' : 'Download CV' }}</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="img-box">
+                <div class="image-clipper">
+                    <img src="./img/FOTO01.jpg" alt="Fernando Hernández Lázaro">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll indicator -->
+    <a href="#about" class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+    </a>
+</section>

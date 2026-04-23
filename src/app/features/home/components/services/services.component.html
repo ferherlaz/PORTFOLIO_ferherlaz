@@ -1,0 +1,48 @@
+<section id="services" class="services">
+    <div class="container">
+        <div class="section-title center">
+            <h2>{{ languageService.isSpanish() ? 'Mis ' : 'My ' }}<span>{{ languageService.isSpanish() ? 'Servicios' : 'Services' }}</span></h2>
+            <span class="bg-text">{{ languageService.isSpanish() ? 'SERVICIOS' : 'SERVICES' }}</span>
+            <p class="subtitle">{{ languageService.isSpanish() ? 'Lo que puedo hacer por ti' : 'What I can do for you' }}</p>
+        </div>
+        
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <div class="service-img-overlay">
+                        <img src="./img/Diseño_Web.jpg" alt="Web Designer">
+                </div>
+                <h3>{{ languageService.isSpanish() ? 'Diseñador Web' : 'Web Designer' }}</h3>
+                <p>{{ languageService.isSpanish() ? 'Diseño interfaces visualmente atractivas e intuitivas, centrándome en la Experiencia de Usuario para crear productos digitales.' : 'I design intuitive and visually attractive interfaces, focusing on User Experience to create stunning digital products.' }}</p>
+
+            </div>
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <div class="service-img-overlay">
+                        <img src="./img/Base Datos.jpg" alt="Database">
+                </div>
+                <h3>{{ languageService.isSpanish() ? 'Gestión de Bases de Datos' : 'Database Management' }}</h3>
+                <p>{{ languageService.isSpanish() ? 'Experiencia estructurando y manteniendo bases de datos robustas para asegurar la integridad y el buen rendimiento.' : 'Experience structuring and maintaining robust databases to ensure data integrity and high performance across applications.' }}</p>
+
+            </div>
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="service-img-overlay">
+                        <img src="./img/Programador.jpg" alt="Web Programmer">
+                </div>
+                <h3>{{ languageService.isSpanish() ? 'Programador Web' : 'Web Programmer' }}</h3>
+                <p>{{ languageService.isSpanish() ? 'Traduciendo diseños a páginas web interactivas y funcionales mediante código limpio, eficiente y semántico.' : 'Translating designs into fully functional interactive web pages with clean, semantic, and efficient code.' }}</p>
+
+            </div>
+        </div>
+    </div>
+</section>

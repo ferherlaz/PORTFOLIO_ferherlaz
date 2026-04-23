@@ -1,0 +1,53 @@
+<section id="contact" class="contact">
+    <div class="container contact-content">
+        <div class="contact-info">
+            <div class="section-title">
+                <h2>{{ languageService.isSpanish() ? 'Mantente en ' : 'Keep In ' }}<span>{{ languageService.isSpanish() ? 'Contacto' : 'Touch' }}</span></h2>
+                <span class="bg-text">{{ languageService.isSpanish() ? 'CONTACTO' : 'CONTACT' }}</span>
+            </div>
+            <p>{{ languageService.isSpanish() ? 'Siempre estoy dispuesto a explorar ideas de diseño, nuevos proyectos u oportunidades para formar parte de tu visión.' : 'I\'m always open to discussing web design work, new projects, creative ideas or opportunities to be part of your visions.' }}</p>
+            
+            <div class="contact-details">
+                <div class="detail-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>{{ languageService.isSpanish() ? 'Mi Correo' : 'Email Me' }}</h4>
+                        <p>ferherlaz&#64;gmail.com</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>{{ languageService.isSpanish() ? 'Llámame' : 'Call Me' }}</h4>
+                        <p>+34 659 28 29 68</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>{{ languageService.isSpanish() ? 'Ubicación' : 'Location' }}</h4>
+                        <p>{{ languageService.isSpanish() ? 'España' : 'Spain' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form-container">
+            <form class="contact-form" action="https://formspree.io/f/ferherlaz@gmail.com" method="POST">
+                <h4 [innerHTML]="languageService.isSpanish() ? 'Envíame un mensaje <i class=\'far fa-smile\'></i>' : 'Send me a message <i class=\'far fa-smile\'></i>'"></h4>
+                <div class="input-group">
+                    <input type="text" name="firstName" id="ph-fname" [placeholder]="languageService.isSpanish() ? 'Nombre' : 'First Name'" required>
+                    <input type="text" name="lastName" id="ph-lname" [placeholder]="languageService.isSpanish() ? 'Apellidos' : 'Last Name'" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" id="ph-email" [placeholder]="languageService.isSpanish() ? 'Correo Electrónico' : 'Email Address'" required>
+                    <input type="tel" name="phone" id="ph-phone" [placeholder]="languageService.isSpanish() ? 'Teléfono' : 'Phone Number'">
+                </div>
+                <textarea name="message" id="ph-message" [placeholder]="languageService.isSpanish() ? 'Escribe tu mensaje aquí...' : 'Write your message here...'" required></textarea>
+                <button type="submit" class="btn btn-primary submit-btn">
+                    <span>{{ languageService.isSpanish() ? 'Enviar Mensaje' : 'Send Message' }}</span> <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
