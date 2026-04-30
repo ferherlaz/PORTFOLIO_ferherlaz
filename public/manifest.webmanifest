@@ -1,0 +1,21 @@
+{
+  "name": "Fernando Hernández Lázaro Portfolio",
+  "short_name": "FHL Portfolio",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "brand-logo.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0B0E14",
+  "background_color": "#0B0E14",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/"
+}
