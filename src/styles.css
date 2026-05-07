@@ -1055,6 +1055,36 @@ section {
     color: #ff4757;
 }
 
+.about-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nav-cv-btn {
+    background: var(--accent);
+    color: var(--bg-main) !important;
+    padding: 5px 15px !important;
+    border-radius: 20px;
+    font-weight: 600 !important;
+    transition: all var(--transition-speed) !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: -5px; /* Adjust alignment in navbar */
+}
+
+.nav-cv-btn:hover {
+    background: transparent !important;
+    color: var(--accent) !important;
+    box-shadow: 0 0 10px var(--accent-glow);
+    outline: 1px solid var(--accent);
+}
+
+.nav-cv-btn::after {
+    display: none !important;
+}
+
 /* =========================================
    RESPONSIVE DESIGN
 ========================================= */
@@ -1106,6 +1136,10 @@ section {
     
     .about-stats {
         flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .about-buttons {
         justify-content: center;
     }
     
