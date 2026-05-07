@@ -8,11 +8,15 @@
         
         <div class="carousel-container">
             <div class="carousel-stage">
-                <div *ngFor="let project of projects; let i = index" 
+                <div *ngFor="let project of projects; let i = index"
                      [class]="'carousel-item ' + getPositionClass(i)">
-                    <img [src]="project.img" [alt]="project.alt">
+                    <a *ngIf="project.link" [href]="project.link" class="project-link">
+                        <img [src]="project.img" [alt]="project.alt">
+                    </a>
+                    <img *ngIf="!project.link" [src]="project.img" [alt]="project.alt">
                     <div class="gallery-overlay">
-                        <span>{{ languageService.isSpanish() ? 'Próximamente' : 'Coming Soon' }}</span>
+                        <span *ngIf="project.link">{{ languageService.isSpanish() ? 'Ver Proyecto' : 'View Project' }}</span>
+                        <span *ngIf="!project.link">{{ languageService.isSpanish() ? 'Próximamente' : 'Coming Soon' }}</span>
                     </div>
                 </div>
             </div>

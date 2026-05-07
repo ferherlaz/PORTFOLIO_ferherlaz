@@ -12,7 +12,7 @@ export class GalleryComponent {
   public languageService = inject(LanguageService);
 
   public projects = [
-    { id: 1, img: 'img/CAP01.png', alt: 'Project 1' },
+    { id: 1, img: 'img/CAP06.png', alt: 'Nirvana Narguile', link: 'nirvana/Portada.html' },
     { id: 2, img: 'img/CAP02.png', alt: 'Project 2' },
     { id: 3, img: 'img/CAP03.png', alt: 'Project 3' },
     { id: 4, img: 'img/CAP04.png', alt: 'Project 4' },
