@@ -35,6 +35,7 @@ a,
 button, 
 .btn, 
 img, 
+video,
 i, 
 .social-icon, 
 .skill-box, 
@@ -752,6 +753,18 @@ section {
     height: 100%;
     object-fit: cover;
     border-radius: 15px;
+}
+
+.carousel-item video,
+.project-media {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.05) 0%, #000 100%);
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
 }
 
 /* Positions */

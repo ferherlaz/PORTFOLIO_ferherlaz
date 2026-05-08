@@ -1,0 +1,264 @@
+/* ************************************************************************************** */
+/* APARTADO DE TODO LO APLICABLE A LA PÁGINA */
+/* ************************************************************************************** */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    background: url(../img/fondonegro.png) rgb(0 0 0);
+    background-repeat: no-repeat;
+    height: 2000px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    background-position: center;
+}
+
+/* ************************************************************************************** */
+/* PÁGINA INDEX*/
+/* ************************************************************************************** */
+
+.contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.presentacion {
+    background-color: aliceblue;
+    margin: auto; 
+    padding: 20px; 
+    border: 5px solid #000; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50%;
+    margin-bottom: 50%;
+}
+
+.pres__text h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xxx-large;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: rgb(244 135 167);
+    text-underline-offset: 15px;
+    margin-bottom: 50px;
+}
+
+.pres__text p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 60px;
+    margin-top: 60px;
+}
+
+.press_post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.press_post label {
+    font-size: x-large;
+    margin-bottom: 10px;
+}  
+
+.press_post label span {
+    font-weight: bold;
+}  
+
+.press_post input[type="text"] {
+    width: 100%; 
+    padding: 5px;
+    margin-top: 10px; 
+}
+
+.press_post input[type="submit"] {
+    padding: 1em 2em;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: rgb(244 135 167);
+    transition: all 1000ms;
+    font-size: 15px;
+    position: relative;
+    overflow: hidden;
+    outline: 2px solid rgb(244 135 167);
+}
+
+.press_post input[type="submit"]:hover {
+    color: rgb(244 135 167);
+    transform: scale(1.1);
+    outline: 2px solid rgb(244 135 167);
+    box-shadow: 4px 5px 17px -4px rgb(244 135 167);
+}
+
+/* ============================================ */
+/* DISEÑO RESPONSIVE PARA MÓVIL */
+/* ============================================ */
+
+@media screen and (max-width: 768px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+        background-size: cover;
+        padding: 20px 10px;
+    }
+
+    .contenido {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .presentacion {
+        margin: 20px auto;
+        padding: 15px;
+        width: 95%;
+        max-width: 400px;
+    }
+
+    .pres__text h2 {
+        font-size: 1.5rem;
+        text-decoration-thickness: 3px;
+        text-underline-offset: 8px;
+        margin-bottom: 25px;
+    }
+
+    .pres__text p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+
+    .press_post label {
+        font-size: 1rem;
+    }
+
+    .press_post input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .press_post input[type="submit"] {
+        padding: 0.8em 1.5em;
+        font-size: 14px;
+        letter-spacing: 3px;
+        width: 100%;
+    }
+
+    /* Estilos para las preguntas */
+    .presentacion form {
+        width: 100%;
+    }
+
+    .presentacion form label h4 {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .presentacion form label {
+        display: block;
+        margin: 10px 0;
+        font-size: 0.95rem;
+    }
+
+    .presentacion form input[type="radio"] {
+        margin-right: 8px;
+        transform: scale(1.2);
+    }
+
+    .presentacion form input[type="submit"] {
+        margin-top: 15px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding: 15px 5px;
+    }
+
+    .presentacion {
+        margin: 15px auto;
+        padding: 12px;
+        width: 98%;
+        border-width: 3px;
+    }
+
+    .pres__text h2 {
+        font-size: 1.2rem;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 5px;
+        margin-bottom: 20px;
+    }
+
+    .pres__text p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .press_post label {
+        font-size: 0.9rem;
+    }
+
+    .press_post input[type="text"] {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .press_post input[type="submit"] {
+        padding: 0.7em 1.2em;
+        font-size: 13px;
+    }
+
+    .presentacion form label h4 {
+        font-size: 0.9rem;
+    }
+
+    .presentacion form label {
+        font-size: 0.85rem;
+        margin: 8px 0;
+    }
+
+    .presentacion form input[type="radio"] {
+        margin-right: 6px;
+        transform: scale(1.1);
+    }
+
+    .presentacion form input[type="submit"] {
+        margin-top: 12px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .pres__text h2 {
+        font-size: 1rem;
+    }
+
+    .pres__text p {
+        font-size: 0.9rem;
+    }
+
+    .press_post input[type="submit"] {
+        padding: 0.6em 1em;
+        font-size: 12px;
+    }
+}

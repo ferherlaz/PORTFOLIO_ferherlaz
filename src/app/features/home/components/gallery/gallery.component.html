@@ -1,7 +1,7 @@
 <section id="gallery" class="gallery">
     <div class="container">
         <div class="section-title center">
-            <h2>{{ languageService.isSpanish() ? 'Mi ' : 'Project ' }}<span>{{ languageService.isSpanish() ? 'Galería' : 'Gallery' }}</span></h2>
+            <h2>{{ languageService.isSpanish() ? 'Mis ' : 'My ' }}<span>{{ languageService.isSpanish() ? 'Proyectos' : 'Projects' }}</span></h2>
             <span class="bg-text">{{ languageService.isSpanish() ? 'PROYECTOS' : 'PORTFOLIO' }}</span>
             <p class="subtitle">{{ languageService.isSpanish() ? 'Algunos de mis trabajos recientes' : 'Some of my recent work' }}</p>
         </div>
@@ -10,10 +10,30 @@
             <div class="carousel-stage">
                 <div *ngFor="let project of projects; let i = index"
                      [class]="'carousel-item ' + getPositionClass(i)">
+                    <!-- Case for links (Projects with link) -->
                     <a *ngIf="project.link" [href]="project.link" class="project-link">
-                        <img [src]="project.img" [alt]="project.alt">
+                        <img *ngIf="project.img" [src]="project.img" [alt]="project.alt">
+                        <video *ngIf="project.video" [src]="project.video" 
+                               autoplay loop muted playsinline 
+                               [muted]="true"
+                               (loadedmetadata)="$any($event.target).play()"
+                               (click)="$any($event.target).play()"
+                               class="project-media"
+                               style="object-fit: contain !important; background: #000; width: 100%; height: 100%;"></video>
                     </a>
-                    <img *ngIf="!project.link" [src]="project.img" [alt]="project.alt">
+
+                    <!-- Case for no links (Coming Soon) -->
+                    <div *ngIf="!project.link" class="media-container">
+                        <img *ngIf="project.img" [src]="project.img" [alt]="project.alt">
+                        <video *ngIf="project.video" [src]="project.video" 
+                               autoplay loop muted playsinline 
+                               [muted]="true"
+                               (loadedmetadata)="$any($event.target).play()"
+                               (click)="$any($event.target).play()"
+                               class="project-media"
+                               style="object-fit: contain !important; background: #000; width: 100%; height: 100%;"></video>
+                    </div>
+
                     <div class="gallery-overlay">
                         <span *ngIf="project.link">{{ languageService.isSpanish() ? 'Ver Proyecto' : 'View Project' }}</span>
                         <span *ngIf="!project.link">{{ languageService.isSpanish() ? 'Próximamente' : 'Coming Soon' }}</span>

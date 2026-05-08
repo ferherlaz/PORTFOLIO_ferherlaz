@@ -2,6 +2,14 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../../../core/services/language.service';
 
+interface Project {
+  id: number;
+  img?: string;
+  video?: string;
+  alt: string;
+  link?: string;
+}
+
 @Component({
   selector: 'app-gallery',
   standalone: true,
@@ -11,12 +19,12 @@ import { LanguageService } from '../../../../core/services/language.service';
 export class GalleryComponent {
   public languageService = inject(LanguageService);
 
-  public projects = [
+  public projects: Project[] = [
     { id: 1, img: 'img/CAP06.png', alt: 'Nirvana Narguile', link: 'nirvana/Portada.html' },
-    { id: 2, img: 'img/CAP02.png', alt: 'Project 2' },
-    { id: 3, img: 'img/CAP03.png', alt: 'Project 3' },
-    { id: 4, img: 'img/CAP04.png', alt: 'Project 4' },
-    { id: 5, img: 'img/CAP05.png', alt: 'Project 5' }
+    { id: 2, img: 'img/CAP07.png', alt: 'Quiz Pokemon', link: 'QuizPokemon/QuizPokemon/index.php' },
+    { id: 3, video: 'video/ComingSoon.mp4', alt: 'Coming Soon' },
+    { id: 4, video: 'video/ComingSoon.mp4', alt: 'Coming Soon' },
+    { id: 5, video: 'video/ComingSoon.mp4', alt: 'Coming Soon' }
   ];
 
   public currentIndex = 0;
