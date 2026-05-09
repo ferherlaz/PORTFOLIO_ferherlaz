@@ -218,6 +218,7 @@ section {
     color: var(--text-title);
     text-decoration: none;
     letter-spacing: 2px;
+    z-index: 1001;
 }
 
 .nav-links {
@@ -1180,7 +1181,56 @@ section {
     }
     
     .nav-links {
-        display: none; /* In a real app, you'd toggle a class via JS */
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(11, 14, 20, 0.95);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.4s ease;
+    }
+
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.2s;
+    }
+
+    .nav-links a {
+        font-size: 1.4rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    .menu-btn {
+        display: block;
+        z-index: 1001; /* Stay above the menu */
+        transition: transform 0.3s ease;
+    }
+
+    .menu-btn:hover {
+        transform: scale(1.1);
+        color: var(--accent);
     }
     
     .hero-text h1 {
