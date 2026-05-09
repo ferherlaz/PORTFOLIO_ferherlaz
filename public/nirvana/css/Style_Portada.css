@@ -60,6 +60,7 @@ h2 {
 
 .button {
     text-align: center;
+    padding-bottom: 120px;
 }
 
 .continue {
@@ -117,7 +118,7 @@ h2 {
 
     .button {
         order: 3;
-        padding-bottom: 30px;
+        padding-bottom: 120px;
         width: 100%;
     }
 
