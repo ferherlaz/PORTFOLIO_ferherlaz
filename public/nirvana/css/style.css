@@ -10,6 +10,11 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+    overflow-x: hidden;
+}
+
 body{
     font-family: 'Montserrat', sans-serif;
     background-color: #F5EDF0;
@@ -17,6 +22,8 @@ body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
+    max-width: 100vw;
 }
 
 /* ************************************************************************************** */
@@ -39,10 +46,7 @@ main {
     flex-direction: column;
     flex-grow: 1;
     align-items: center;
-}
-
-html {
-    height: 100%;
+    max-width: 100%;
 }
 
 .contenedor_nav {
@@ -316,6 +320,8 @@ html {
     display: flex;
     justify-content: center;
     position: relative;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .gallery img {
@@ -358,6 +364,8 @@ html {
     display: flex;
     gap: 150px;
     margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .gallery2 > div {
@@ -399,7 +407,7 @@ html {
 
 .gallery3{
     display: inline-block;
-    min-width: 600px;
+    min-width: min(600px, 90vw);
     background: #020116;
     border-radius: 15px;
     box-shadow: 0px 0px 20px 20px#020116;
@@ -411,6 +419,8 @@ html {
     transform: rotateX(11deg) rotateY(16.5deg);
     background: rgb(252,96,168);
     background: radial-gradient(circle, rgba(252,96,168,1) 0%, rgba(2,1,22,1) 100%);
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .card3{
@@ -787,17 +797,26 @@ html {
 }
 
 /* ============================================ */
-/* DISEÑO RESPONSIVE PARA MÓVIL */
+/* DISEÑO RESPONSIVE - BREAKPOINTS ESPECÍFICOS */
 /* ============================================ */
 
+/* Tablet landscape y small desktop */
 @media screen and (max-width: 1024px) {
+    html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+    }
+
     main {
         width: 90%;
+        max-width: 100%;
     }
 
     .contenedor_nav {
         flex-direction: column;
         padding: 20px 0;
+        width: 100%;
+        max-width: 100%;
     }
 
     .menu {
@@ -824,6 +843,8 @@ html {
     .card_group {
         flex-wrap: wrap;
         gap: 15px;
+        width: 100%;
+        max-width: 100%;
     }
 
     .card {
@@ -834,6 +855,7 @@ html {
     .container2 {
         grid-template-columns: 1fr;
         gap: 30px;
+        max-width: 100%;
     }
 
     .container2 img {
@@ -854,6 +876,7 @@ html {
     .card_group2 {
         flex-wrap: wrap;
         gap: 15px;
+        width: 100%;
     }
 
     .card4 {
@@ -871,11 +894,13 @@ html {
     .gallery2 {
         flex-direction: column;
         gap: 30px;
+        width: 100%;
     }
 
     .gallery3 {
-        min-width: 90vw;
+        min-width: min(600px, 90vw);
         padding: 20px;
+        max-width: 100%;
     }
 
     .card3 {
@@ -915,6 +940,7 @@ html {
         text-align: center;
         min-height: auto;
         padding: 20px 0;
+        max-width: 100%;
     }
 
     .footer__socialnetwork ul {
@@ -932,6 +958,11 @@ html {
 }
 
 @media screen and (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+    }
+
     h1 {
         font-size: 280%;
     }
@@ -943,6 +974,13 @@ html {
     main {
         width: 95%;
         padding: 10px 0;
+        max-width: 100%;
+    }
+
+    header {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .title {
@@ -957,11 +995,15 @@ html {
     .contenedor_nav {
         margin-top: 0;
         margin-bottom: 10px;
+        width: 100%;
+        max-width: 100%;
     }
 
     .menu {
         flex-wrap: wrap;
         gap: 5px;
+        width: 100%;
+        max-width: 100%;
     }
 
     .menu a {
@@ -972,6 +1014,13 @@ html {
     .boton_navegacion img {
         width: 60px;
         height: 60px;
+    }
+
+    .marca {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
     }
 
     .images {
@@ -1203,18 +1252,28 @@ html {
     }
 }
 
-@media screen and (max-width: 480px) {
+/* Mobile: 430px */
+@media screen and (max-width: 430px) {
+    html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+    }
+
     h1 {
-        font-size: 200%;
+        font-size: clamp(1.5rem, 5vw, 2rem);
     }
 
     h2 {
-        font-size: 140%;
+        font-size: clamp(1.2rem, 4vw, 1.5rem);
+    }
+
+    .menu {
+        gap: 3px;
     }
 
     .menu a {
         padding: 6px 8px;
-        font-size: 0.75rem;
+        font-size: 0.7rem;
     }
 
     .boton_navegacion img {
@@ -1223,64 +1282,387 @@ html {
     }
 
     .title {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+    }
+
+    .images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .images ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .images li {
+        max-width: 80vw;
+        margin: 8px 0;
     }
 
     .images img {
-        max-width: 95vw;
+        max-width: 80vw;
+        max-height: 80vw;
     }
 
     .text__overlay span {
-        font-size: 16px;
+        font-size: clamp(12px, 3vw, 16px);
     }
 
-
     .card {
-        width: 95vw;
+        width: 85vw;
+        max-width: 280px;
     }
 
     .content h2 {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .content p {
-        font-size: 11px;
+        font-size: 10px;
     }
 
+    .gallery {
+        width: 90vw;
+        height: 300px;
+    }
 
+    .gallery2 {
+        width: 100%;
+    }
+
+    .gallery3 {
+        min-width: 85vw;
+        padding: 15px;
+    }
+
+    .card3 {
+        width: 85vw;
+        max-width: 180px;
+        height: 260px;
+    }
+
+    .card3:not(:last-child) {
+        margin-right: 10px;
+    }
+
+    .card3 .imgcard3 {
+        top: 35px;
+        height: 140px;
+    }
+
+    .container2 {
+        width: 100%;
+    }
+
+    .container2 img {
+        max-width: 85vw;
+        max-height: 40vh;
+    }
+
+    .gallery4 {
+        padding: 20px 5px;
+    }
+
+    .gallery4 img {
+        width: 180px;
+        height: 180px;
+    }
 
     .card4 {
-        width: 95vw;
-        max-width: 250px;
+        width: 85vw;
+        max-width: 220px;
         height: 280px;
     }
 
     .card4 h1 {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .cartelera {
-        width: 95vw;
-        max-width: 200px;
-        height: 300px;
+        width: 85vw;
+        max-width: 180px;
+        height: 280px;
     }
 
     .cartelera img {
-        width: 95vw;
+        width: 85vw;
+        max-width: 180px;
+        max-height: 280px;
+    }
+
+    .footer__content h2 {
+        font-size: 1.3em;
+    }
+
+    .footer__content h5 {
+        font-size: 0.85em;
+    }
+
+    .footer__socialnetwork ul {
+        gap: 4%;
+    }
+
+    .footer__socialnetwork img {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Mobile: 390px */
+@media screen and (max-width: 390px) {
+    html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+    }
+
+    h1 {
+        font-size: clamp(1.4rem, 5vw, 1.8rem);
+    }
+
+    h2 {
+        font-size: clamp(1.1rem, 4vw, 1.4rem);
+    }
+
+    .menu a {
+        padding: 5px 7px;
+        font-size: 0.65rem;
+    }
+
+    .boton_navegacion img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .images li {
+        max-width: 75vw;
+    }
+
+    .images img {
+        max-width: 75vw;
+        max-height: 75vw;
+    }
+
+    .card {
+        width: 85vw;
+        max-width: 260px;
+    }
+
+    .gallery3 {
+        min-width: 82vw;
+    }
+
+    .card3 {
+        width: 82vw;
+        max-width: 160px;
+        height: 240px;
+    }
+
+    .card3 .imgcard3 {
+        top: 30px;
+        height: 120px;
+    }
+
+    .container2 img {
+        max-width: 82vw;
+    }
+
+    .gallery4 img {
+        width: 160px;
+        height: 160px;
+    }
+
+    .card4 {
+        width: 82vw;
         max-width: 200px;
-        max-height: 300px;
+        height: 260px;
+    }
+
+    .cartelera {
+        width: 82vw;
+        max-width: 160px;
+        height: 260px;
+    }
+
+    .cartelera img {
+        width: 82vw;
+        max-width: 160px;
+        max-height: 260px;
+    }
+}
+
+/* Mobile: 375px (iPhone standard) */
+@media screen and (max-width: 375px) {
+    html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+    }
+
+    h1 {
+        font-size: clamp(1.3rem, 5vw, 1.6rem);
+    }
+
+    h2 {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+    }
+
+    main {
+        width: 95%;
+        padding: 8px 0;
+    }
+
+    .contenedor_nav {
+        padding: 15px 0;
+    }
+
+    .menu {
+        gap: 2px;
+    }
+
+    .menu a {
+        padding: 5px 6px;
+        font-size: 0.6rem;
+    }
+
+    .boton_navegacion img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .title {
+        font-size: 1rem;
+        margin-top: 8%;
+        margin-bottom: 12%;
+    }
+
+    .images li {
+        max-width: 70vw;
+        margin: 6px 0;
+    }
+
+    .images img {
+        max-width: 70vw;
+        max-height: 70vw;
+    }
+
+    .text__overlay span {
+        font-size: clamp(10px, 3vw, 14px);
+    }
+
+    .card {
+        width: 85vw;
+        max-width: 240px;
+    }
+
+    .content h2 {
+        font-size: 0.85rem;
+    }
+
+    .content p {
+        font-size: 9px;
+    }
+
+    .gallery {
+        height: 280px;
+    }
+
+    .gallery2 {
+        gap: 20px;
+    }
+
+    .gallery3 {
+        min-width: 80vw;
+        padding: 12px;
+    }
+
+    .card3 {
+        width: 80vw;
+        max-width: 150px;
+        height: 220px;
+    }
+
+    .card3:not(:last-child) {
+        margin-right: 8px;
+        margin-bottom: 15px;
+    }
+
+    .card3 .imgcard3 {
+        top: 25px;
+        height: 110px;
+    }
+
+    .textcard3 {
+        height: 50px;
+    }
+
+    .titlecard3 {
+        font-size: 0.8rem;
+    }
+
+    .container2 {
+        gap: 20px;
+    }
+
+    .container2 img {
+        max-width: 80vw;
+        max-height: 35vh;
+    }
+
+    .gallery4 {
+        padding: 15px 5px;
+    }
+
+    .gallery4 img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .card4 {
+        width: 80vw;
+        max-width: 180px;
+        height: 240px;
+    }
+
+    .card4 h1 {
+        font-size: 0.8rem;
+    }
+
+    .cartelera {
+        width: 80vw;
+        max-width: 150px;
+        height: 240px;
+    }
+
+    .cartelera img {
+        width: 80vw;
+        max-width: 150px;
+        max-height: 240px;
+    }
+
+    .footer {
+        padding: 12px 0;
     }
 
     .footer__content h2 {
         font-size: 1.2em;
     }
 
+    .footer__content h5 {
+        font-size: 0.8em;
+    }
+
+    .footer__copyright {
+        margin-top: 15px;
+        padding: 8px;
+        font-size: 0.65rem;
+    }
+
     .footer__socialnetwork ul {
-        gap: 5%;
+        gap: 3%;
     }
 
     .footer__socialnetwork img {
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
     }
 }
