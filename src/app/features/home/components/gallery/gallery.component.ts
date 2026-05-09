@@ -21,7 +21,7 @@ export class GalleryComponent {
 
   public projects: Project[] = [
     { id: 1, img: 'img/CAP06.png', alt: 'Nirvana Narguile', link: 'nirvana/Portada.html' },
-    { id: 2, img: 'img/CAP07.png', alt: 'Quiz Pokemon', link: 'QuizPokemon/QuizPokemon/index.php' },
+    { id: 2, img: 'img/CAP08.png', alt: 'Quiz Pokemon', link: 'QuizPokemon/QuizPokemon/index.html' },
     { id: 3, video: 'video/ComingSoon.mp4', alt: 'Coming Soon' },
     { id: 4, video: 'video/ComingSoon.mp4', alt: 'Coming Soon' },
     { id: 5, video: 'video/ComingSoon.mp4', alt: 'Coming Soon' }
