@@ -47,10 +47,11 @@ export class GalleryComponent {
     },
     {
       id: 4,
-      video: 'video/ComingSoon.mp4',
-      alt: 'Coming Soon',
-      description: 'More amazing projects are on the way! Stay tuned for upcoming web applications.',
-      descriptionEs: '¡Más proyectos increíbles están en camino! Mantente al tanto de las próximas aplicaciones web.'
+      img: 'img/CAP09.png',
+      alt: 'Proyecto Web Seguros',
+      link: 'web-seguros/index.html',
+      description: 'Insurance management web application developed with Angular, featuring property renovation management, billing, payments, correspondence tracking, and contact management. Includes bilingual support (Spanish/English) and a modern, responsive design. Project completed in 2024.',
+      descriptionEs: 'Aplicación web de gestión de seguros desarrollada con Angular, que incluye gestión de renovaciones de propiedades, facturación, pagos, seguimiento de correspondencia y gestión de contactos. Incluye soporte bilingüe (español/inglés) y un diseño moderno y responsivo. Proyecto realizado en 2024.'
     },
     {
       id: 5,

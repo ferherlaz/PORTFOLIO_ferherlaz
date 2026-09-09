@@ -1,0 +1,36 @@
+/* COLORS */
+/* Base */
+$primary0: #4B98D9;
+$primary75: #6FA6D4;
+$primary50: #9FC3E2;
+$primary25: #CFE1F1;
+
+$background:#F7F7FC;
+$back-ground:#FFFFFF;
+$border_bottom:#E6E7E8;
+
+/* Neutral */
+$grey100:#353535;
+$grey75:#686868;
+$grey50:#9A9A9A;
+$grey25:#CDCDCD;
+$light:#FAFCFE;
+
+/* Function */
+$success50:#57AE6026;
+$success25:#3BA83B;
+$success0:#3BD378;
+$pending25:#FFE74F66;
+$pending0:#A87D00;
+$error50: var(--Error-Washed, #DB39001F);
+$error25:#B32E00;
+$error0:#E75249;
+
+/* Information */
+$text:#191C3D;
+$subtle_text:#7579A0;
+$accent: #D8DBF5;
+$inverse_text:#F7F7FC;
+
+/** Fonts **/
+$roboto-font-family: 'Roboto';

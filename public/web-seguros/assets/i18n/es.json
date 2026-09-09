@@ -1,0 +1,114 @@
+{
+    
+    "HEADER":{
+        "Home": "Inicio",
+        "ProximasRenovaciones": "Próximas renovaciones",
+        "MiPerfil": "Mi Perfil",
+        "Texto01": "En este espacio puedes acceder, modificar, gestionar y consultar todo lo relacionado con tus servicios de energía. Fácil y rápido.",
+        "MisDatosPersonales": "Mis datos personales",
+        "MiContraseña": "Mi contraseña",
+        "Contacto": "Contacto",
+        "CerrarSesion": "Cerrar Sesión",
+        "Español": "Español",
+        "Ingles": "English",
+        "Catalan": "Catalán",
+        "Gallego": "Gallego",
+        "Euskera": "Euskera"
+    },
+
+    
+    "FOOTER":{
+        "Ayuda": "¿Necesitas ayuda?",
+        "PoliticaCookies": "Política de cookies",
+        "AvisoLegal": "Aviso legal",
+        "PoliticaPrivacidad": "Política de privacidad"
+    },
+
+
+    "BUTTON":{
+        "VerTodas": "Ver todas"
+    },
+
+
+    "CLIENTS":{
+        "ClientesPotenciales": "Clientes potenciales",
+        "SeguroMoto": "Producto a ofrecer: Seguro de moto",
+        "SeguroCasa": "Producto a ofrecer: Seguro de casa",
+        "Email": "Email",
+        "Telefono": "Teléfono"
+    },
+
+
+    "UNCOMING_RENOVATIONS":{
+        "NumeroPoliza": "No. de póliza",
+        "NombreRiesgo": "Nombre del riesgo",
+        "FechaContrato": "Fecha de contrato",
+        "FechaVencimiento": "Fecha de vencimiento",
+        "Importe": "Importe",
+        "EstadoPoliza": "Estado de la póliza",
+        "Pendiente": "Pendiente",
+        "Pagada": "Pagada",
+        "Vencido": "Vencido"
+    },
+
+
+    "WELCOME":{
+        "Bienvenido": "Bienvenido a tu área personal",
+        "Texto02": "Gracias a ti más personas pueden disfrutar de una vida más segura"
+    },
+
+
+    "RENOVATIONS":{
+        "Polizas": "Pólizas",
+        "Filtros": "Filtros",
+        "TodasLasPolizas": "Todas las pólizaS",
+        "FechaValidez": "Fecha de validez",
+        "Al": "al",
+        "Estado": "Estado",
+        "TodosLosEstados": "Todos los estados",
+        "BorrarFiltros": "Borrar Filtros",
+        "AplicarFiltros": "Aplicar Filtros",
+        "Resultados": "resultados",
+        "FiltrosAplicados": "filtros aplicados",
+        "OrdenarPor": "Ordenar por:",
+        "MayorImporte": "Mayor importe",
+        "MenorImporte": "Menor importe",
+        "NoCoincidencias": "No se encontraron renovaciones que coincidan con los filtros.",
+        "FilasPorPagina": "Filas por página:",
+        "Pagina": "Página",
+        "De": "de",
+        "IntroduceNombre": "Introduce el nombre del riesgo",
+        "IntroduceImporte": "Introduzca importe"
+    },
+
+
+    "DETAILS":{
+        "DetallePoliza": "Detalle de póliza",
+        "UltimasCuotas": "Últimas cuotas",
+        "FechaEmision": "Fecha de emisión",
+        "Periodo": "Periodo",
+        "Titular": "Titular",
+        "Nombre": "Nombre",
+        "DireccionFiscal": "Dirección fiscal",
+        "Actualizar": "Actualizar",
+        "Guardar": "Guardar",
+        "Cancelar": "Cancelar",
+        "DireccionFacturacion": "Dirección de la facturación",
+        "Direccion": "Dirección",
+        "Numero": "Número",
+        "Ciudad": "Ciudad",
+        "CodigoPostal": "Código postal",
+        "MetodoPago": "Método de pago",
+        "TipoCobro": "Tipo de cobro",
+        "Banco": "Banco",
+        "DirCorrespondencia": "Dir. de correspondencia",
+        "Datos": "Datos",
+        "Poblacion": "Población",
+        "Aclarador": "Aclarador",
+        "Contacto": "Contacto",
+        "CorreoPrincipal": "Correo principal",
+        "Correo2": "Correo 2",
+        "TelefonoPrincipal": "Teléfono principal"
+    }  
+
+}

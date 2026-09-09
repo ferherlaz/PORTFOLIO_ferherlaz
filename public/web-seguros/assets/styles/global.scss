@@ -1,0 +1,15 @@
+/* Imports */
+@import 'mixins.scss';
+
+body {
+  font-family: $roboto-font-family;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: $background!important;
+}
+
+main{
+  max-width: 1440px;
+  margin: auto;
+}

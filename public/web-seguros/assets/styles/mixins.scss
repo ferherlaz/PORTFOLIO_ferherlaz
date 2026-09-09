@@ -1,0 +1,64 @@
+@import 'variables';
+
+@function rem($value) {
+    $remSize: $value / 16;
+    
+    @return #{$remSize}rem;
+}
+
+@function letter-spacing-percent($percent) {
+    @return $percent / 100 * 1em;
+}
+
+@mixin h1 {
+    font-family: $roboto-font-family;
+    font-weight: 700;
+    font-size: rem(64);
+    letter-spacing: letter-spacing-percent(0);
+}
+@mixin h2 {
+    font-family: $roboto-font-family;
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: letter-spacing-percent(0);
+}
+@mixin h3 {
+    font-family: $roboto-font-family;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: letter-spacing-percent(0);
+}
+@mixin subtitle {
+    font-family: $roboto-font-family;
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: letter-spacing-percent(0);
+}
+
+@mixin body {
+    font-family: $roboto-font-family;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: letter-spacing-percent(0);
+}
+
+@mixin body-bold {
+    font-family: $roboto-font-family;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: letter-spacing-percent(0);
+}
+
+@mixin small {
+    font-family: $roboto-font-family;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: letter-spacing-percent(0);
+}
+
+@mixin small-title {
+    font-family: $roboto-font-family;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: letter-spacing-percent(0);
+}
