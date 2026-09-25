@@ -47,14 +47,6 @@ export class GalleryComponent {
     },
     {
       id: 4,
-      img: 'img/CAP09.png',
-      alt: 'Proyecto Web Seguros',
-      link: 'web-seguros/index.html',
-      description: 'Insurance management web application developed with Angular, featuring property renovation management, billing, payments, correspondence tracking, and contact management. Includes bilingual support (Spanish/English) and a modern, responsive design. Project completed in 2024.',
-      descriptionEs: 'Aplicación web de gestión de seguros desarrollada con Angular, que incluye gestión de renovaciones de propiedades, facturación, pagos, seguimiento de correspondencia y gestión de contactos. Incluye soporte bilingüe (español/inglés) y un diseño moderno y responsivo. Proyecto realizado en 2024.'
-    },
-    {
-      id: 5,
       img: 'blogchile/img/LogoChile.jpg',
       alt: 'Blog Chile',
       link: 'blogchile/index.html',
