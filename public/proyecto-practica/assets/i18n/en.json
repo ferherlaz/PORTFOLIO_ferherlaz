@@ -1,0 +1,114 @@
+{
+
+    "HEADER":{
+        "Home": "Start",
+        "ProximasRenovaciones": "Upcoming renovations",
+        "MiPerfil": "My Profile",
+        "Texto01": "In this space you can access, modify, manage and consult everything related to your services.energy. Easy and fast.",
+        "MisDatosPersonales": "My personal data",
+        "MiContraseña": "My password",
+        "Contacto": "Contact",
+        "CerrarSesion": "Close Session",
+        "Español": "Spanish",
+        "Ingles": "English",
+        "Catalan": "Catalan",
+        "Gallego": "Galician",
+        "Euskera": "Basque"
+    },
+
+    
+    "FOOTER":{
+        "Ayuda": "Do you need help?",
+        "PoliticaCookies": "Cookie Policy",
+        "AvisoLegal": "Legal notice",
+        "PoliticaPrivacidad": "Privacy Policy"
+    },
+
+
+    "BUTTON":{
+        "VerTodas": "See all"
+    },
+
+
+    "CLIENTS":{
+        "ClientesPotenciales": "Potential clients",
+        "SeguroMoto": "Product to offer: Motorcycle insurance",
+        "SeguroCasa": "Product to offer: Home insurance",
+        "Email": "Mail",
+        "Telefono": "Phone"
+    },
+
+
+    "UNCOMING_RENOVATIONS":{
+        "NumeroPoliza": "Policy No.",
+        "NombreRiesgo": "Name of the risk",
+        "FechaContrato": "Contract date",
+        "FechaVencimiento": "Expiration date",
+        "Importe": "Amount",
+        "EstadoPoliza": "Policy status",
+        "Pendiente": "Earring",
+        "Pagada": "Paid",
+        "Vencido": "Expired"
+    },
+
+
+    "WELCOME": {        
+        "Bienvenido": "Welcome to your personal area",
+        "Texto02": "Thanks to you, more people can enjoy a safer life."
+    },
+
+
+    "RENOVATIONS": {
+        "Polizas": "Policies",
+        "Filtros": "Filters",
+        "TodasLasPolizas": "All policies",
+        "FechaValidez": "Validity date",
+        "Al": "to the",
+        "Estado": "State",
+        "TodosLosEstados": "All states",
+        "BorrarFiltros": "Clear Filters",
+        "AplicarFiltros": "Apply Filters",
+        "Resultados": "results",
+        "FiltrosAplicados": "filters applied",
+        "OrdenarPor": "Sort by:",
+        "MayorImporte": "Higher amount",
+        "MenorImporte": "Lower amount",
+        "NoCoincidencias": "No renewals were found that match your filters.",
+        "FilasPorPagina": "Rows per page:",
+        "Pagina": "Page",
+        "De": "of",
+        "IntroduceNombre": "Enter the name of the risk",
+        "IntroduceImporte": "Enter amount"
+    },
+
+
+    "DETAILS":{
+        "DetallePoliza": "Policy details",
+        "UltimasCuotas": "Latest installments",
+        "FechaEmision": "Issue date",
+        "Periodo": "Period",
+        "Titular": "Holder",
+        "Nombre": "Name",
+        "DireccionFiscal": "Tax address",
+        "Actualizar": "Update",
+        "Guardar": "Save",
+        "Cancelar": "Cancel",
+        "DireccionFacturacion": "Billing address",
+        "Direccion": "Address",
+        "Numero": "Number",
+        "Ciudad": "City",
+        "CodigoPostal": "Zip code",
+        "MetodoPago": "Payment method",
+        "TipoCobro": "Collection type",
+        "Banco": "Bank",
+        "DirCorrespondencia": "Dir. of Correspondence",
+        "Datos": "Data",
+        "Poblacion": "Population",
+        "Aclarador": "Lightener",        
+        "Contacto": "Contact",
+        "CorreoPrincipal": "Main email",
+        "Correo2": "Second email",
+        "TelefonoPrincipal": "Main phone"
+    } 
+  
+}

@@ -40,10 +40,11 @@ export class GalleryComponent {
     },
     {
       id: 3,
-      video: 'video/ComingSoon.mp4',
-      alt: 'Coming Soon',
-      description: 'More amazing projects are on the way! Stay tuned for upcoming web applications.',
-      descriptionEs: '¡Más proyectos increíbles están en camino! Mantente al tanto de las próximas aplicaciones web.'
+      img: 'proyecto-practica/assets/img/hero-cover3.jpg',
+      alt: 'Secura Insurance',
+      link: 'proyecto-practica/index.html',
+      description: 'Insurance customer area developed with Angular, Bootstrap and ngx-bootstrap, featuring policy renewals with filters and sorting, policy details (holder, billing, payments, correspondence and contacts), and bilingual support (Spanish/English) with a responsive design.',
+      descriptionEs: 'Área de cliente para una aseguradora desarrollada con Angular, Bootstrap y ngx-bootstrap, con listado de renovaciones de pólizas con filtros y ordenación, detalle de póliza (titular, facturación, pagos, correspondencia y contactos) y soporte bilingüe (español/inglés) con diseño responsive.'
     },
     {
       id: 4,

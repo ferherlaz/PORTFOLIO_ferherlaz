@@ -1,0 +1,29 @@
+{
+   
+    "titulares": [
+        {"id":1,"idPoliza":1,"cif":"H59721886","nombre":"José Martínez","dirFiscal":"Casanova 128","estado":"Pagada"},
+        {"id":2,"idPoliza":5,"cif":"H12345678","nombre":"José Maria Caoba","dirFiscal":"Casanova 128","estado":"Vencido"},
+        {"id":3,"idPoliza":3,"cif":"H87654321","nombre":"Maria Jose","dirFiscal":"Casanova 128","estado":"Pendiente"}
+    ],
+    "facturaciones": [
+        {"id":1,"idPoliza":1,"dirFacturacion":"CP LLUIS COMPANYS N° 6, CL","numero":"71","ciudad":"Barcelona","cp":"09001"},
+        {"id":2,"idPoliza":5,"dirFacturacion":"CP LLUIS COMPANYS N° 62, CL","numero":"22","ciudad":"Madrid","cp":"09121"},
+        {"id":3,"idPoliza":3,"dirFacturacion":"CP LLUIS COMPANYS N° 1, CL","numero":"53","ciudad":"Barcelona","cp":"02301"}
+    ],
+    "pagos": [
+        {"id":1,"idPoliza":1,"nombre":"GRUP SISQUELLA SERVEIS PROFESSIONALS","cif":"B63249544","tipoCobro":"DOMICILIADO Estándar (7 días)","iban":"ES1700810002420001******"},
+        {"id":2,"idPoliza":5,"nombre":"GRUP SERVEIS SISQUELLA PROFESSIONALS","cif":"B12345678","tipoCobro":"AL CONTADO","iban":"ES1700810002420222******"},
+        {"id":3,"idPoliza":3,"nombre":"GRUP PROFESSIONALS SISQUELLA SERVEIS","cif":"B87654321","tipoCobro":"A PLAZOS","iban":"ES1700810002420033******"}
+    ],
+    "correspondencias": [
+        {"id":1,"idPoliza":1,"datos":"GRUP SISQUELLA SERVEIS PROFESSIONALS","poblacion":"MONTACADA CENTRE","cp":"09001","direccion":"PZ/ EGLESIA DE L’","numero":"7","aclarador":"BAJO"},
+        {"id":2,"idPoliza":5,"datos":"GRUP SERVEIS SISQUELLA PROFESSIONALS","poblacion":"CAN LLEDÓ","cp":"09121","direccion":"CALLE CATALANA","numero":"0","aclarador":"IZQUIERDA"},
+        {"id":3,"idPoliza":3,"datos":"GRUP PROFESSIONALS SISQUELLA SERVEIS","poblacion":"SABADELL","cp":"02301","direccion":"CALLE FALSA","numero":"123","aclarador":"DERECHA"}
+    ],
+    "contactos": [
+        {"id":1,"idPoliza":1,"correoPrincipal":"email@gmail.com","correoSecundario":"email2@gmail.com","telefono":"+23 373 782 939"},
+        {"id":2,"idPoliza":5,"correoPrincipal":"email@hotmail.com","correoSecundario":"email2@hotmail.com","telefono":"+23 123 456 789"},
+        {"id":3,"idPoliza":3,"correoPrincipal":"email@yahoo.com","correoSecundario":"email2@yahoo.com","telefono":"+23 987 654 321"}
+    ]
+
+}
