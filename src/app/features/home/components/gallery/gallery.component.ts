@@ -53,6 +53,14 @@ export class GalleryComponent {
       link: 'blogchile/index.html',
       description: 'Travel blog focused on highlighting the diversity and beauty of Chile, from the Atacama Desert to Patagonia. Developed in 2024 with React, HTML, CSS, and JavaScript, incorporating an interactive design and a navigation organized by regions to offer a more intuitive and engaging user experience.',
       descriptionEs: 'Blog de viajes enfocado en destacar la diversidad y belleza de Chile, desde el Desierto de Atacama hasta la Patagonia. Desarrollado en 2024 con React, HTML, CSS y JavaScript, incorporando un diseño interactivo y una navegación organizada por regiones para ofrecer una experiencia de usuario más intuitiva y atractiva.'
+    },
+    {
+      id: 5,
+      img: 'img/the-magic-barber-logo.png',
+      alt: 'The Magic Barber',
+      link: 'the-magic-barber/index.html',
+      description: 'Booking and management web app for a barbershop in Getafe (Madrid), developed in 2026 with Angular 19 and Supabase. Clients book appointments by service, barber and time, manage their bookings and order shop products; the admin panel manages the agenda, clients, services, barbers and opening hours. Demo: cliente@demo.es or admin@demo.es, password demo1234.',
+      descriptionEs: 'Aplicación web de reservas y gestión para una barbería de Getafe (Madrid), desarrollada en 2026 con Angular 19 y Supabase. Los clientes reservan cita por servicio, barbero y hora, gestionan sus reservas y encargan productos de la tienda; el panel de administración gestiona agenda, clientes, servicios, barberos y horarios. Demo: cliente@demo.es o admin@demo.es, contraseña demo1234.'
     }
   ];
 

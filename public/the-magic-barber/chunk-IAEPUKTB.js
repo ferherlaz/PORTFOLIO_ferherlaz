@@ -1,0 +1,1 @@
+var e={pending:"Pendiente",confirmed:"Confirmada",completed:"Completada",cancelled:"Cancelada",no_show:"No presentado"},n=["pending","confirmed"],t={holiday:"Festivo",vacation:"Vacaciones",block:"Bloqueo puntual"},i={pending:"Pendiente",ready:"Listo para recoger",delivered:"Entregado",cancelled:"Cancelado"};export{e as a,n as b,t as c,i as d};
