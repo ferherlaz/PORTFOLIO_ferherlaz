@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { LanguageService } from '../../../../core/services/language.service';
+import { PROFILE } from '../../../../core/profile';
 
 @Component({
   selector: 'app-about',
@@ -7,5 +8,6 @@ import { LanguageService } from '../../../../core/services/language.service';
   templateUrl: './about.component.html'
 })
 export class AboutComponent {
-  public languageService = inject(LanguageService);
+  protected readonly t = inject(LanguageService).t;
+  protected readonly cvUrl = PROFILE.cvUrl;
 }

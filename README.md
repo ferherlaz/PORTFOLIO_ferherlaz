@@ -1,28 +1,45 @@
-# AngularApp
+# Portfolio · Fernando Hernández Lázaro
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+Portfolio personal hecho con Angular 18 (componentes standalone y signals), bilingüe (inglés / español).
 
-## Development server
+## Comandos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+| Comando | Qué hace |
+| --- | --- |
+| `npm start` | Servidor de desarrollo en `http://localhost:4200/` |
+| `npm run build` | Build de producción en `dist/portfolio/browser/` |
+| `npm test` | Tests unitarios con Karma |
 
-## Code scaffolding
+## Estructura
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+src/
+├── app/
+│   ├── core/
+│   │   ├── i18n/translations.ts   # Todos los textos en inglés y español
+│   │   ├── services/              # Idioma activo (se recuerda entre visitas)
+│   │   └── profile.ts             # Correo, teléfono, CV y redes
+│   ├── layout/                    # Cabecera y pie
+│   └── features/home/components/  # Secciones: hero, sobre mí, servicios, habilidades, proyectos, contacto
+├── index.html
+└── styles.css                     # Estilos globales
+public/                            # Se publica tal cual junto a la web
+├── img/, curriculum/              # Imágenes y CV del portfolio
+└── <proyecto>/                    # Cada proyecto de la galería, ya compilado
+tools/                             # Scripts para volver a publicar proyectos en public/
+blog-chile/                        # Código fuente (React) del proyecto Blog Chile
+```
 
-## Build
+## Proyectos de la galería
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+| Proyecto | Carpeta publicada | Cómo actualizarla |
+| --- | --- | --- |
+| Nirvana Narguile | `public/nirvana/` | HTML, CSS y JS estáticos: se editan directamente |
+| Quiz Pokémon | `public/QuizPokemon/` | Estático (`index.html`); los `.php` son la versión original |
+| Secura Insurance | `public/proyecto-practica/` | `npm run build:portfolio` en su proyecto y copiar `dist/portfolio/browser` |
+| Blog Chile | `public/blogchile/` | `npm run build` en `blog-chile/` y copiar `build/` (sin los `.map`) |
+| The Magic Barber | `public/the-magic-barber/` | `node tools/the-magic-barber.mjs` |
 
-## Running unit tests
+## Formulario de contacto
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-.
+La web es estática: al enviar el formulario se abre el programa de correo del visitante con el mensaje ya redactado para `ferherlaz@gmail.com`.

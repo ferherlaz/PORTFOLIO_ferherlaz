@@ -1,72 +1,61 @@
 <section id="gallery" class="gallery">
     <div class="container">
         <div class="section-title center">
-            <h2>{{ languageService.isSpanish() ? 'Mis ' : 'My ' }}<span>{{ languageService.isSpanish() ? 'Proyectos' : 'Projects' }}</span></h2>
-            <span class="bg-text">{{ languageService.isSpanish() ? 'PROYECTOS' : 'PORTFOLIO' }}</span>
-            <p class="subtitle">{{ languageService.isSpanish() ? 'Algunos de mis trabajos recientes' : 'Some of my recent work' }}</p>
+            <h2>{{ t().common.my }}<span>{{ t().gallery.titleAccent }}</span></h2>
+            <span class="bg-text" aria-hidden="true">{{ t().gallery.background }}</span>
+            <p class="subtitle">{{ t().gallery.subtitle }}</p>
         </div>
-        
+
         <div class="carousel-container">
             <div class="carousel-stage">
-                <div *ngFor="let project of projects; let i = index"
-                     [class]="'carousel-item ' + getPositionClass(i)"
-                     (click)="openModal(project)">
-                    <div class="media-container">
-                        <img *ngIf="project.img" [src]="project.img" [alt]="project.alt">
-                        <video *ngIf="project.video" [src]="project.video" 
-                               autoplay loop muted playsinline 
-                               [muted]="true"
-                               (loadedmetadata)="$any($event.target).play()"
-                               (click)="$any($event.target).play()"
-                               class="project-media"></video>
+                @for (project of projects; track project.id; let i = $index) {
+                    <div [class]="'carousel-item ' + positionClass(i)" role="button" tabindex="0"
+                         [attr.aria-label]="project.title" (click)="openModal(project)"
+                         (keydown.enter)="openModal(project)">
+                        <div class="media-container">
+                            <img [src]="project.img" [alt]="project.title">
+                        </div>
+                        <div class="gallery-overlay">
+                            <span>{{ t().gallery.viewProject }}</span>
+                        </div>
                     </div>
-
-                    <div class="gallery-overlay">
-                        <span *ngIf="project.link">{{ languageService.isSpanish() ? 'Ver Proyecto' : 'View Project' }}</span>
-                        <span *ngIf="!project.link">{{ languageService.isSpanish() ? 'Próximamente' : 'Coming Soon' }}</span>
-                    </div>
-                </div>
+                }
             </div>
 
-            <!-- Navigation Controls -->
-            <button class="carousel-control prev" (click)="prev(); $event.stopPropagation()">
-                <i class="fas fa-chevron-left"></i>
+            <button type="button" class="carousel-control prev" [attr.aria-label]="t().gallery.previous" (click)="prev()">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
             </button>
-            <button class="carousel-control next" (click)="next(); $event.stopPropagation()">
-                <i class="fas fa-chevron-right"></i>
+            <button type="button" class="carousel-control next" [attr.aria-label]="t().gallery.next" (click)="next()">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
             </button>
         </div>
     </div>
 
-    <!-- Project Detail Modal -->
-    <div class="project-modal" [class.active]="selectedProject" (click)="closeModal()">
-        <div class="modal-content" (click)="$event.stopPropagation()">
-            <button class="close-modal" (click)="closeModal()">
-                <i class="fas fa-times"></i>
+    <div class="project-modal" [class.active]="selectedProject()" (click)="closeModal()">
+        <div class="modal-content" role="dialog" aria-modal="true" (click)="$event.stopPropagation()">
+            <button type="button" class="close-modal" [attr.aria-label]="t().gallery.close" (click)="closeModal()">
+                <i class="fas fa-times" aria-hidden="true"></i>
             </button>
-            
-            <div class="modal-body" *ngIf="selectedProject">
-                <div class="modal-image-container">
-                    <img *ngIf="selectedProject.img" [src]="selectedProject.img" [alt]="selectedProject.alt">
-                    <video *ngIf="selectedProject.video" [src]="selectedProject.video" 
-                           autoplay loop muted playsinline 
-                           class="modal-video"></video>
-                </div>
-                
-                <div class="modal-info">
-                    <h3>{{ selectedTitleWhite }}<span>{{ selectedTitleAccent }}</span></h3>
-                    <p class="project-description">
-                        {{ languageService.isSpanish() ? (selectedProject.descriptionEs || selectedProject.description) : (selectedProject.description || selectedProject.descriptionEs) }}
-                    </p>
-                    
-                    <div class="modal-actions">
-                        <button class="btn btn-primary" (click)="goToProject($event, selectedProject.link)">
-                            <i class="fas fa-external-link-alt"></i>
-                            <span>{{ languageService.isSpanish() ? 'Ir al proyecto' : 'Go to project' }}</span>
-                        </button>
+
+            @if (selectedProject(); as project) {
+                <div class="modal-body">
+                    <div class="modal-image-container">
+                        <img [src]="project.img" [alt]="project.title">
+                    </div>
+
+                    <div class="modal-info">
+                        <h3>{{ selectedTitle().start }}<span>{{ selectedTitle().accent }}</span></h3>
+                        <p class="project-description">{{ project.description[language.language()] }}</p>
+
+                        <div class="modal-actions">
+                            <button type="button" class="btn btn-primary" (click)="goToProject(project.link)">
+                                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                <span>{{ t().gallery.goToProject }}</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
     </div>
 </section>

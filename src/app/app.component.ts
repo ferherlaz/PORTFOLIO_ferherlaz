@@ -23,6 +23,4 @@ import { FooterComponent } from './layout/footer/footer.component';
   ],
   templateUrl: './app.component.html'
 })
-export class AppComponent {
-  title = 'portfolio';
-}
+export class AppComponent {}

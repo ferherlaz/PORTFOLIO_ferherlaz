@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { LanguageService } from '../../../../core/services/language.service';
+import { PROFILE } from '../../../../core/profile';
 
 @Component({
   selector: 'app-hero',
@@ -7,5 +8,6 @@ import { LanguageService } from '../../../../core/services/language.service';
   templateUrl: './hero.component.html'
 })
 export class HeroComponent {
-  public languageService = inject(LanguageService);
+  protected readonly t = inject(LanguageService).t;
+  protected readonly cvUrl = PROFILE.cvUrl;
 }

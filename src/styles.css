@@ -27,39 +27,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: default; /* Global default cursor */
 }
 
-/* Interactive and Media Elements - Hand Cursor */
-a, 
-button, 
-.btn, 
-img, 
-video,
-i, 
-.social-icon, 
-.skill-box, 
-.gallery-item, 
-.service-card,
-.stat-box,
-.service-icon,
-.img-box,
-.image-clipper,
-.lang-btn {
-    cursor: pointer !important;
+/* Solo lo que se puede pulsar muestra la mano */
+a,
+button,
+.carousel-item {
+    cursor: pointer;
 }
-
-/* Text Elements - Arrow Cursor (overriding default text I-beam) */
-h1, h2, h3, h4, h5, h6, p, span, li, label, section, div:not(.img-box):not(.service-card):not(.skill-box):not(.gallery-item) {
-    cursor: default;
-}
-
-/* Form Inputs - Text Cursor */
-input, textarea {
-    cursor: text;
-}
-
-
 
 html {
     scroll-behavior: smooth;
@@ -285,7 +260,9 @@ section {
     display: none;
     color: var(--text-title);
     font-size: 1.5rem;
-    cursor: pointer;
+    background: none;
+    border: 0;
+    padding: 0;
 }
 
 /* =========================================
@@ -599,21 +576,6 @@ section {
     margin-bottom: 25px;
 }
 
-.read-more {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: gap 0.3s;
-}
-
-.read-more:hover {
-    gap: 12px;
-}
-
 /* =========================================
    SKILLS SECTION
 ========================================= */
@@ -756,8 +718,6 @@ section {
     border-radius: 15px;
 }
 
-.carousel-item video,
-.project-media,
 .media-container {
     width: 100%;
     height: 100%;
@@ -767,20 +727,6 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover !important;
-}
-
-.carousel-item video,
-.media-container video,
-.project-media {
-    width: 100%;
-    height: 100%;
-    object-fit: cover !important;
-    object-position: center;
-    background: #000;
-    border-radius: 15px;
-    display: block;
-    margin: 0 auto;
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
 }
 
 /* Positions */
@@ -954,6 +900,16 @@ section {
     font-size: 1rem;
 }
 
+.detail-item a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.detail-item a:hover {
+    color: var(--accent);
+}
+
 .contact-form-container {
     background: var(--bg-tertiary);
     padding: 40px;
@@ -1007,6 +963,13 @@ section {
     justify-content: center;
     align-items: center;
     gap: 10px;
+}
+
+.form-hint {
+    margin-top: 12px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-align: center;
 }
 
 /* =========================================
@@ -1204,13 +1167,6 @@ section {
     object-fit: contain;
 }
 
-.modal-video {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: contain;
-}
-
 .modal-info h3 {
     font-size: 2rem;
     color: var(--text-title);
@@ -1382,4 +1338,39 @@ section {
         width: 300px;
         height: 380px;
     }
-}@media (max-width: 768px) { .modal-body { grid-template-columns: 1fr; gap: 20px; text-align: center; } .modal-content { padding: 40px 20px 30px; width: 95%; max-height: 90vh; overflow-y: auto; } .modal-info h3 { font-size: 1.5rem; margin-bottom: 15px; } .project-description { font-size: 1rem; margin-bottom: 20px; } .modal-actions { justify-content: center; } }
+
+    .modal-body {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .modal-content {
+        padding: 40px 20px 30px;
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modal-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .project-description {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .modal-actions {
+        justify-content: center;
+    }
+
+    .hero-buttons {
+        flex-wrap: wrap;
+    }
+
+    .hero-buttons .btn {
+        white-space: nowrap;
+    }
+}

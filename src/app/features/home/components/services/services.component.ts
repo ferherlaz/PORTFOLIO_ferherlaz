@@ -7,5 +7,5 @@ import { LanguageService } from '../../../../core/services/language.service';
   templateUrl: './services.component.html'
 })
 export class ServicesComponent {
-  public languageService = inject(LanguageService);
+  protected readonly t = inject(LanguageService).t;
 }

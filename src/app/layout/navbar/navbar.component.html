@@ -1,23 +1,24 @@
 <header class="header" [class.scrolled]="isScrolled">
     <nav class="navbar">
         <a href="#home" class="logo">F<span>HL</span></a>
-        
-        <button id="lang-btn" class="lang-btn" (click)="languageService.toggleLanguage()">
-            <i class="fas fa-globe"></i> <span>{{ languageService.isSpanish() ? 'ES' : 'EN' }}</span>
+
+        <button type="button" class="lang-btn" [attr.aria-label]="t().nav.language" (click)="language.toggleLanguage()">
+            <i class="fas fa-globe" aria-hidden="true"></i> <span>{{ language.isSpanish() ? 'ES' : 'EN' }}</span>
         </button>
 
-        <ul class="nav-links" [class.active]="isMenuOpen">
-            <li><a href="#home" class="active" (click)="closeMenu()">{{ languageService.isSpanish() ? 'INICIO' : 'HOME' }}</a></li>
-            <li><a href="#about" (click)="closeMenu()">{{ languageService.isSpanish() ? 'SOBRE MÍ' : 'ABOUT ME' }}</a></li>
-            <li><a href="#services" (click)="closeMenu()">{{ languageService.isSpanish() ? 'SERVICIOS' : 'SERVICES' }}</a></li>
-            <li><a href="#skills" (click)="closeMenu()">{{ languageService.isSpanish() ? 'HABILIDADES' : 'SKILLS' }}</a></li>
-            <li><a href="#gallery" (click)="closeMenu()">{{ languageService.isSpanish() ? 'PROYECTOS' : 'PROJECTS' }}</a></li>
-            <li><a href="#contact" (click)="closeMenu()">{{ languageService.isSpanish() ? 'CONTACTO' : 'CONTACT' }}</a></li>
-            <li><a download href="./curriculum/CV FERNANDO HERNÁNDEZ LÁZARO.pdf" class="nav-cv-btn" (click)="closeMenu()"><i class="fas fa-download"></i> CV</a></li>
+        <ul id="nav-links" class="nav-links" [class.active]="isMenuOpen">
+            @for (item of items; track item.section) {
+                <li>
+                    <a [href]="'#' + item.section" [class.active]="activeSection === item.section"
+                       [attr.aria-current]="activeSection === item.section ? 'true' : null" (click)="closeMenu()">{{ t().nav[item.label] }}</a>
+                </li>
+            }
+            <li><a download [href]="cvUrl" class="nav-cv-btn" (click)="closeMenu()"><i class="fas fa-download" aria-hidden="true"></i> CV</a></li>
         </ul>
-        <!-- Mobile Menu Toggle -->
-        <div class="menu-btn" (click)="toggleMenu()">
-            <i class="fas" [class.fa-bars]="!isMenuOpen" [class.fa-times]="isMenuOpen"></i>
-        </div>
+
+        <button type="button" class="menu-btn" aria-controls="nav-links" [attr.aria-expanded]="isMenuOpen"
+                [attr.aria-label]="isMenuOpen ? t().nav.closeMenu : t().nav.openMenu" (click)="toggleMenu()">
+            <i class="fas" [class.fa-bars]="!isMenuOpen" [class.fa-times]="isMenuOpen" aria-hidden="true"></i>
+        </button>
     </nav>
 </header>
