@@ -24,6 +24,21 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "../publicados",
+                "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "../proyectos/nirvana",
+                "output": "nirvana"
+              },
+              {
+                "glob": "**/*",
+                "input": "../proyectos/quiz-pokemon",
+                "output": "QuizPokemon/QuizPokemon"
               }
             ],
             "styles": [

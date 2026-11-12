@@ -7,13 +7,13 @@ services:
     plan: free
     region: frankfurt
     branch: main
-    dockerfilePath: ./backend/Dockerfile
-    dockerContext: ./backend
+    dockerfilePath: ./proyectos/proyecto-practica/backend/Dockerfile
+    dockerContext: ./proyectos/proyecto-practica/backend
     healthCheckPath: /health
     autoDeploy: true
     buildFilter:
       paths:
-        - backend/**
+        - proyectos/proyecto-practica/backend/**
     envVars:
       - key: ASPNETCORE_ENVIRONMENT
         value: Production

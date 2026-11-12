@@ -1,6 +1,6 @@
 # Proyecto Práctica · API .NET 10
 
-Backend del proyecto **"Proyecto Práctica"** del portfolio (área personal de una aseguradora), consumido por el frontend Angular de [`../proyecto-practica`](../proyecto-practica/README.md).
+Backend del proyecto **"Proyecto Práctica"** del portfolio (área personal de una aseguradora), consumido por el frontend Angular de [`../frontend`](../frontend/README.md).
 
 - API en producción: https://proyecto-practica-api.onrender.com
 - Documentación interactiva: https://proyecto-practica-api.onrender.com/swagger
@@ -141,4 +141,4 @@ dotnet test
 
 ## Despliegue en Render
 
-Servicio web Docker: `dockerfilePath: ./backend/Dockerfile`, `dockerContext: ./backend` y health check en `/health` (ver [`render.yaml`](../render.yaml)). Se redespliega automáticamente con cada push a `main`.
+Servicio web Docker: `dockerfilePath: ./proyectos/proyecto-practica/backend/Dockerfile`, `dockerContext: ./proyectos/proyecto-practica/backend` y health check en `/health` (ver [`render.yaml`](../../../render.yaml)).
