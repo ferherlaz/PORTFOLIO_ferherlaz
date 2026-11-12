@@ -18,47 +18,49 @@ PORTFOLIO_ferherlaz/
 │   ├── angular.json
 │   └── package.json
 │
-├── proyectos/                      Código fuente de los proyectos de la galería
+├── proyectos/                      Una carpeta por proyecto de la galería, con todo lo suyo dentro
+│   ├── blog-chile/
+│   │   ├── frontend/               Código React
+│   │   └── publicado/              Build que se ve en el portfolio
+│   ├── nirvana/
+│   │   └── publicado/              HTML, CSS y JS (no necesita compilarse)
 │   ├── proyecto-practica/          "Secura Insurance"
 │   │   ├── frontend/               Angular 19 + Bootstrap
-│   │   └── backend/                API .NET 10 · Clean Architecture + CQRS · se despliega en Render
-│   ├── blog-chile/                 React
-│   ├── nirvana/                    HTML, CSS y JS (se publica tal cual)
-│   └── quiz-pokemon/               HTML, CSS y JS + la versión PHP original
-│
-├── publicados/                     Builds compilados que se sirven dentro del portfolio (no se editan a mano)
-│   ├── proyecto-practica/
-│   ├── blogchile/
+│   │   ├── backend/                API .NET 10 · Clean Architecture + CQRS · se despliega en Render
+│   │   └── publicado/              Build del frontend
+│   ├── quiz-pokemon/
+│   │   └── publicado/              HTML, CSS y JS + la versión PHP original
 │   └── the-magic-barber/
+│       ├── publicar.mjs            Genera su build (el código fuente está en otro repositorio)
+│       └── publicado/
 │
-├── scripts/                        Scripts de publicación de proyectos
 ├── vercel.json                     Cómo compila Vercel la web (desde portfolio/)
 └── render.yaml                     Referencia del servicio de la API en Render
 ```
 
-**Regla general:** el código se edita en `portfolio/` o en `proyectos/`. Lo que hay en `publicados/` sale de compilar un proyecto y se sustituye entero cada vez.
+**Regla general:** cada proyecto vive en `proyectos/<proyecto>/`. Lo que hay en su carpeta `publicado/` es exactamente lo que se ve en la web; si el proyecto tiene código fuente, está al lado (`frontend/`, `backend/`).
 
 ## Cómo se publica cada proyecto
 
-Al compilar el portfolio, Angular copia en la web final, además de `portfolio/public/`:
+Al compilar el portfolio, Angular copia en la web final, además de `portfolio/public/`, la carpeta `publicado/` de cada proyecto:
 
 | URL en la web | Origen en el repositorio |
 | --- | --- |
-| `/proyecto-practica/` | `publicados/proyecto-practica/` |
-| `/blogchile/` | `publicados/blogchile/` |
-| `/the-magic-barber/` | `publicados/the-magic-barber/` |
-| `/nirvana/` | `proyectos/nirvana/` |
-| `/QuizPokemon/QuizPokemon/` | `proyectos/quiz-pokemon/` |
+| `/blogchile/` | `proyectos/blog-chile/publicado/` |
+| `/nirvana/` | `proyectos/nirvana/publicado/` |
+| `/proyecto-practica/` | `proyectos/proyecto-practica/publicado/` |
+| `/QuizPokemon/QuizPokemon/` | `proyectos/quiz-pokemon/publicado/` |
+| `/the-magic-barber/` | `proyectos/the-magic-barber/publicado/` |
 
 Esta correspondencia está en los `assets` de [`portfolio/angular.json`](portfolio/angular.json). Las URLs son las de siempre, así que los enlaces de la galería no cambian.
 
 | Proyecto | Cómo actualizarlo |
 | --- | --- |
-| Secura Insurance | `npm run build` en `proyectos/proyecto-practica/frontend/` (compila directamente en `publicados/proyecto-practica/`) |
-| Blog Chile | `npm run build` en `proyectos/blog-chile/` y copiar `build/` (sin los `.map`) a `publicados/blogchile/` |
-| The Magic Barber | `node scripts/the-magic-barber.mjs` (el código fuente está en otro repositorio) |
-| Nirvana Narguile | Editar directamente `proyectos/nirvana/` |
-| Quiz Pokémon | Editar directamente `proyectos/quiz-pokemon/` |
+| Blog Chile | `npm run build` en `frontend/` y copiar `build/` (sin los `.map`) a `publicado/` |
+| Nirvana Narguile | Editar directamente `publicado/` |
+| Secura Insurance | `npm run build` en `frontend/` (compila directamente en `publicado/`) |
+| Quiz Pokémon | Editar directamente `publicado/` |
+| The Magic Barber | Desde la raíz: `node proyectos/the-magic-barber/publicar.mjs` |
 
 ## Comandos de la web principal
 

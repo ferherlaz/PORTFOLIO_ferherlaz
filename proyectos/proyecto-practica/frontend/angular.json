@@ -14,7 +14,7 @@
           "builder": "@angular/build:application",
           "options": {
             "outputPath": {
-              "base": "../../../publicados/proyecto-practica",
+              "base": "../publicado",
               "browser": ""
             },
             "index": "src/index.html",

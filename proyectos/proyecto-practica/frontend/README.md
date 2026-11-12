@@ -32,4 +32,4 @@ Para la API local: `dotnet run --project ../backend/src/ProyectoPractica.Api`.
 npm run build
 ```
 
-Compila en `publicados/proyecto-practica/` (en la raíz del repositorio), que el portfolio sirve como estático (Vercel). La URL de la API de producción está en `src/environments/environment.ts`.
+Compila en `../publicado/`, que el portfolio sirve como estático en `/proyecto-practica/` (Vercel). La URL de la API de producción está en `src/environments/environment.ts`.

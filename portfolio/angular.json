@@ -27,18 +27,28 @@
               },
               {
                 "glob": "**/*",
-                "input": "../publicados",
-                "output": "/"
+                "input": "../proyectos/blog-chile/publicado",
+                "output": "blogchile"
               },
               {
                 "glob": "**/*",
-                "input": "../proyectos/nirvana",
+                "input": "../proyectos/nirvana/publicado",
                 "output": "nirvana"
               },
               {
                 "glob": "**/*",
-                "input": "../proyectos/quiz-pokemon",
+                "input": "../proyectos/proyecto-practica/publicado",
+                "output": "proyecto-practica"
+              },
+              {
+                "glob": "**/*",
+                "input": "../proyectos/quiz-pokemon/publicado",
                 "output": "QuizPokemon/QuizPokemon"
+              },
+              {
+                "glob": "**/*",
+                "input": "../proyectos/the-magic-barber/publicado",
+                "output": "the-magic-barber"
               }
             ],
             "styles": [

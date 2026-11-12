@@ -1,4 +1,4 @@
-// Publica The Magic Barber en publicados/the-magic-barber SIN modificar el proyecto original.
+// Publica The Magic Barber en proyectos/the-magic-barber/publicado SIN modificar el proyecto original.
 //
 // La app necesita Supabase. En el portfolio no hay servidor, así que se usa el mismo backend de
 // demostración del proyecto (scripts/demo-supabase.mjs), convertido para ejecutarse en el navegador:
@@ -8,14 +8,14 @@
 //   - environment.ts  -> apunta a DEMO_URL
 //   - app.config.ts   -> rutas con '#' (la app vive en una subcarpeta de una web estática)
 //
-// Uso: node scripts/the-magic-barber.mjs ["ruta del proyecto"]
+// Uso (desde la raíz del repositorio): node proyectos/the-magic-barber/publicar.mjs ["ruta del proyecto"]
 import { execSync } from 'node:child_process';
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 
 const SRC = resolve(process.argv[2] ?? 'C:/Users/ferhe/OneDrive/Documentos/Mis Documentos/MIS PROYECTOS/the-magic-barber-portfolio');
-const OUT = resolve('publicados/the-magic-barber');
+const OUT = resolve('proyectos/the-magic-barber/publicado');
 const WORK = join(tmpdir(), 'the-magic-barber-portfolio-build');
 const DEMO_URL = 'https://demo-supabase.invalid';
 
@@ -65,7 +65,7 @@ logic = replaceOnce(logic, "return sessions.get(token) ?? { id: null, role: 'ano
 const handlerBody = between('  try {', '}).listen(');
 const handler = replaceOnce(handlerBody, 'const email = sessions.get(body.refresh_token);', "const email = sessions.get(body.refresh_token) ?? Object.keys(users).find((e) => 'refresh-' + users[e].id === body.refresh_token);", 'el refresco de sesión');
 
-const backend = `// Generado por scripts/the-magic-barber.mjs a partir de scripts/demo-supabase.mjs del proyecto.
+const backend = `// Generado por proyectos/the-magic-barber/publicar.mjs a partir de scripts/demo-supabase.mjs del proyecto.
 // Imita Supabase (auth + PostgREST) en memoria dentro del navegador. Los datos se reinician al recargar.
 (() => {
 const DEMO_URL = ${JSON.stringify(DEMO_URL)};
