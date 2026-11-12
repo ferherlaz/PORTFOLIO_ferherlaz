@@ -1,0 +1,92 @@
+<header class="main-header">
+  <nav class="navigation navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a routerLink="/inicio"><img src="assets/img/logo.png" alt="Secura Insurance" /></a>
+
+      <ul class="navbar-nav flex-row flex-wrap ms-md-auto user-options">
+        <li class="nav-item dropdown d-flex">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="icon-user"></span>
+            <span class="text-user">{{ 'HEADER.MiPerfil' | translate }}</span>
+          </a>
+          <ul class="dropdown-menu profile">
+            <li>
+              <h5>{{ 'HEADER.MiPerfil' | translate }}</h5>
+              <p>{{ 'HEADER.Texto01' | translate }}</p>
+            </li>
+            <li class="activo">
+              <span class="icon-user"></span>
+              <a class="dropdown-item" href="#" (click)="$event.preventDefault()">{{ 'HEADER.MisDatosPersonales' | translate }}</a>
+            </li>
+            <li>
+              <span class="icon-lock"></span>
+              <a class="dropdown-item" href="#" (click)="$event.preventDefault()">{{ 'HEADER.MiContraseña' | translate }}</a>
+            </li>
+            <li>
+              <span class="icon-phone"></span>
+              <a class="dropdown-item" href="#" (click)="$event.preventDefault()">{{ 'HEADER.Contacto' | translate }}</a>
+            </li>
+            <li>
+              <span class="icon-switch"></span>
+              <a class="dropdown-item" href="#" (click)="$event.preventDefault()">{{ 'HEADER.CerrarSesion' | translate }}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <button
+        class="navbar-toggler d-lg-none"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar"
+        aria-label="Toggle navigation"
+      >
+        <img src="assets/img/burger_menu.png" alt="" />
+      </button>
+
+      <div class="offcanvas offcanvas-lg offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <a routerLink="/inicio" (click)="closeMenu()"><img src="assets/img/logo.png" alt="Secura Insurance" /></a>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav navigation-links">
+            <li class="nav-item" routerLinkActive="activo">
+              <a class="nav-link" routerLink="/inicio" ariaCurrentWhenActive="page" (click)="closeMenu()">{{ 'HEADER.Home' | translate }}</a>
+            </li>
+            <li class="nav-item" routerLinkActive="activo">
+              <a class="nav-link" routerLink="/renovaciones" ariaCurrentWhenActive="page" (click)="closeMenu()">{{
+                'HEADER.ProximasRenovaciones' | translate
+              }}</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+            <li class="nav-item dropdown d-flex language">
+              <span class="icon-sphere"></span>
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ activeLanguageKey() | translate }}
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" [class.activo]="language.current() === 'es'" (click)="language.use('es')">{{
+                    'HEADER.Español' | translate
+                  }}</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" [class.activo]="language.current() === 'en'" (click)="language.use('en')">{{
+                    'HEADER.Ingles' | translate
+                  }}</a>
+                </li>
+                <li><a class="dropdown-item">{{ 'HEADER.Catalan' | translate }}</a></li>
+                <li><a class="dropdown-item">{{ 'HEADER.Gallego' | translate }}</a></li>
+                <li><a class="dropdown-item">{{ 'HEADER.Euskera' | translate }}</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -1,13 +1,14 @@
-# Blueprint de Render: solo despliega el backend .NET (el frontend sigue en Vercel).
+# Referencia de la configuración del servicio en Render (creado como web service Docker).
+# Solo despliega el backend .NET; el frontend sigue en Vercel.
 services:
   - type: web
     name: proyecto-practica-api
     runtime: docker
     plan: free
     region: frankfurt
-    rootDir: backend
-    dockerfilePath: ./Dockerfile
-    dockerContext: .
+    branch: main
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
     healthCheckPath: /health
     autoDeploy: true
     buildFilter:

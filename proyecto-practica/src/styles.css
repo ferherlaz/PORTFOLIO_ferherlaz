@@ -1,0 +1,86 @@
+body {
+  font-family: Roboto, var(--bs-font-sans-serif);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #f7f7fc !important;
+}
+
+main {
+  max-width: 1440px;
+  margin: auto;
+}
+
+/* Iconos (icomoon) */
+@font-face {
+  font-family: icomoon;
+  src: url("./media/icomoon.eot?9gabff");
+  src: url("./media/icomoon.eot?9gabff#iefix") format("embedded-opentype"),
+    url("./media/icomoon.ttf?9gabff") format("truetype"),
+    url("./media/icomoon.woff?9gabff") format("woff"),
+    url("./media/icomoon.svg?9gabff#icomoon") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: icomoon !important;
+  speak: never;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-phone:before { content: "\e942"; }
+.icon-envelop:before { content: "\e945"; }
+.icon-clock:before { content: "\e94e"; }
+.icon-user:before { content: "\e971"; }
+.icon-bin:before { content: "\e9ac"; }
+.icon-sphere:before { content: "\e9c9"; }
+.icon-checkmark:before { content: "\ea10"; }
+.icon-lock:before { content: "\e98f"; }
+.icon-switch:before { content: "\e9b6"; }
+.icon-cross:before { content: "\ea0f"; }
+.icon-file-empty:before { content: "\e924"; }
+.icon-calendar:before { content: "\e953"; }
+.icon-equalizer2:before { content: "\e993"; }
+.icon-backward2:before { content: "\ea1f"; }
+.icon-forward3:before { content: "\ea20"; }
+.icon-previous2:before { content: "\ea23"; }
+.icon-next2:before { content: "\ea24"; }
+.icon-share:before { content: "\ea7d"; }
+
+/* Datepicker de ngx-bootstrap con el azul corporativo */
+.theme-blue .bs-datepicker-head {
+  background-color: #4b98d9;
+}
+
+/* Avisos de estado de la API (comunes a todas las pantallas) */
+.estado-carga {
+  margin: 20px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 3px 5px #37464933;
+  color: #405258;
+}
+
+.estado-carga.error {
+  background: #fdecea;
+  color: #b32e00;
+}
+
+.estado-carga button {
+  margin-left: 12px;
+  border: 0;
+  border-radius: 6px;
+  background: #cfe1f1;
+  color: #191c3d;
+  padding: 4px 12px;
+}

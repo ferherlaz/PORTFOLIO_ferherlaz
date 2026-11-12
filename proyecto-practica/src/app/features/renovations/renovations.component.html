@@ -1,0 +1,277 @@
+<main>
+  <section class="breadcrumbs">
+    <a routerLink="/renovaciones">{{ 'RENOVATIONS.Polizas' | translate }}</a> /
+    <span>{{ 'HEADER.ProximasRenovaciones' | translate }}</span>
+  </section>
+
+  <section class="controls">
+    <div class="row renovations_header justify-content-between">
+      <div class="col-12 col-md-4">
+        <h2>{{ 'HEADER.ProximasRenovaciones' | translate }}</h2>
+      </div>
+      <div class="col-12 col-md-4 d-flex">
+        <div class="page">
+          <span class="icon-file-empty"></span>{{ totalPolizas() ?? '—' }} {{ 'RENOVATIONS.Polizas' | translate }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-5 col-md-2 filterModal">
+        <button
+          type="button"
+          class="filter-button dropdown-toggle"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasFiltros"
+          aria-controls="offcanvasFiltros"
+        >
+          <span class="icon-equalizer2"></span>{{ 'RENOVATIONS.Filtros' | translate }}
+        </button>
+
+        <div class="filtros-formulario offcanvas offcanvas-start" id="offcanvasFiltros" tabindex="-1" aria-labelledby="offcanvasFiltros">
+          <div class="formTitle offcanvas-header">
+            <h2>{{ 'RENOVATIONS.Filtros' | translate }}</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="formBody offcanvas-body">
+            <form (ngSubmit)="aplicarFiltros()">
+              <div class="form-group">
+                <label for="busqueda">{{ 'RENOVATIONS.Buscar' | translate }}</label>
+                <input
+                  type="text"
+                  id="busqueda"
+                  name="busqueda"
+                  class="form-control"
+                  [placeholder]="'RENOVATIONS.IntroduceBusqueda' | translate"
+                  [(ngModel)]="borrador.q"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="fechaInicio">{{ 'RENOVATIONS.FechaValidez' | translate }}</label>
+                <div class="d-flex align-items-center">
+                  <input
+                    type="text"
+                    id="fechaInicio"
+                    name="fechaInicio"
+                    class="form-control"
+                    bsDatepicker
+                    [bsConfig]="bsConfig"
+                    [(ngModel)]="borrador.desde"
+                  />
+                  <span class="mx-2">{{ 'RENOVATIONS.Al' | translate }}</span>
+                  <input
+                    type="text"
+                    id="fechaFin"
+                    name="fechaFin"
+                    class="form-control"
+                    bsDatepicker
+                    [bsConfig]="bsConfig"
+                    [(ngModel)]="borrador.hasta"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="importeMin">{{ 'RENOVATIONS.ImporteEntre' | translate }}</label>
+                <div class="d-flex align-items-center">
+                  <input
+                    type="number"
+                    id="importeMin"
+                    name="importeMin"
+                    min="0"
+                    class="form-control"
+                    [placeholder]="'RENOVATIONS.Minimo' | translate"
+                    [(ngModel)]="borrador.importeMin"
+                  />
+                  <span class="mx-2">{{ 'RENOVATIONS.Al' | translate }}</span>
+                  <input
+                    type="number"
+                    id="importeMax"
+                    name="importeMax"
+                    min="0"
+                    class="form-control"
+                    [placeholder]="'RENOVATIONS.Maximo' | translate"
+                    [(ngModel)]="borrador.importeMax"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="estado">{{ 'RENOVATIONS.Estado' | translate }}</label>
+                <select id="estado" name="estado" class="form-select" [(ngModel)]="borrador.estado">
+                  <option [ngValue]="undefined">{{ 'RENOVATIONS.TodosLosEstados' | translate }}</option>
+                  @for (estado of estados; track estado) {
+                    <option [ngValue]="estado">{{ 'UNCOMING_RENOVATIONS.' + estado | translate }}</option>
+                  }
+                </select>
+              </div>
+
+              <div class="formControls">
+                <button type="button" class="filter-button" data-bs-dismiss="offcanvas" (click)="borrarFiltros()">
+                  {{ 'RENOVATIONS.BorrarFiltros' | translate }}
+                </button>
+                <button type="submit" class="see-all" data-bs-dismiss="offcanvas">
+                  {{ 'RENOVATIONS.AplicarFiltros' | translate }}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-10">
+        <div class="chipsTags">
+          @if (filtros().q) {
+            <span class="badge rounded-pill">
+              {{ filtros().q }}
+              <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="borrarFiltro('q')"></button>
+            </span>
+          }
+          @if (filtros().desde) {
+            <span class="badge rounded-pill">
+              {{ 'RENOVATIONS.Desde' | translate }} {{ filtros().desde | date: 'dd/MM/yyyy' }}
+              <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="borrarFiltro('desde')"></button>
+            </span>
+          }
+          @if (filtros().hasta) {
+            <span class="badge rounded-pill">
+              {{ 'RENOVATIONS.Hasta' | translate }} {{ filtros().hasta | date: 'dd/MM/yyyy' }}
+              <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="borrarFiltro('hasta')"></button>
+            </span>
+          }
+          @if (filtros().importeMin != null) {
+            <span class="badge rounded-pill">
+              ≥ {{ filtros().importeMin | currency: 'EUR' : 'symbol' : '1.2-2' : 'es' }}
+              <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="borrarFiltro('importeMin')"></button>
+            </span>
+          }
+          @if (filtros().importeMax != null) {
+            <span class="badge rounded-pill">
+              ≤ {{ filtros().importeMax | currency: 'EUR' : 'symbol' : '1.2-2' : 'es' }}
+              <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="borrarFiltro('importeMax')"></button>
+            </span>
+          }
+          @if (filtros().estado) {
+            <span class="badge rounded-pill">
+              {{ 'UNCOMING_RENOVATIONS.' + filtros().estado | translate }}
+              <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="borrarFiltro('estado')"></button>
+            </span>
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-between">
+      <div class="col-12 col-md-9 ordenarSegundo">
+        <div class="policy-count">
+          {{ resultado()?.total ?? 0 }}
+          @if (filtrosAplicados()) {
+            <span>
+              {{ 'RENOVATIONS.Resultados' | translate }} | {{ filtrosAplicados() }} {{ 'RENOVATIONS.FiltrosAplicados' | translate }}
+            </span>
+            <span class="borrarFiltroInfo" role="button" tabindex="0" (click)="borrarFiltros()" (keydown.enter)="borrarFiltros()">
+              {{ 'RENOVATIONS.BorrarFiltros' | translate }}
+            </span>
+          } @else {
+            <span>{{ 'RENOVATIONS.Polizas' | translate }}</span>
+          }
+        </div>
+      </div>
+      <div class="col-12 col-md-3 text-end ordenarPrimero">
+        <div class="sort-options">
+          <label for="sort">{{ 'RENOVATIONS.OrdenarPor' | translate }}</label>
+          <select id="sort" name="sort" [(ngModel)]="orden" (change)="cambiarOrden()">
+            <option value="importe_desc">{{ 'RENOVATIONS.MayorImporte' | translate }}</option>
+            <option value="importe_asc">{{ 'RENOVATIONS.MenorImporte' | translate }}</option>
+            <option value="vencimiento_asc">{{ 'RENOVATIONS.VencimientoProximo' | translate }}</option>
+            <option value="vencimiento_desc">{{ 'RENOVATIONS.VencimientoLejano' | translate }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="renovaciones listado_tabla" [class.cargando]="cargando()" [attr.aria-busy]="cargando()">
+    @if (error()) {
+      <div class="estado-carga error">
+        {{ 'API.Error' | translate }}
+        <button type="button" (click)="cargar()">{{ 'API.Reintentar' | translate }}</button>
+      </div>
+    } @else if (resultado() === null) {
+      <div class="estado-carga">{{ 'API.Cargando' | translate }}</div>
+    } @else {
+      <div>
+        <div class="row thead">
+          <div class="col-12 col-md-2">{{ 'UNCOMING_RENOVATIONS.NumeroPoliza' | translate }}</div>
+          <div class="col-12 col-md-2">{{ 'UNCOMING_RENOVATIONS.NombreRiesgo' | translate }}</div>
+          <div class="col-12 col-md-2">{{ 'UNCOMING_RENOVATIONS.FechaContrato' | translate }}</div>
+          <div class="col-12 col-md-2">{{ 'UNCOMING_RENOVATIONS.FechaVencimiento' | translate }}</div>
+          <div class="col-12 col-md-2">{{ 'UNCOMING_RENOVATIONS.Importe' | translate }}</div>
+          <div class="col-12 col-md-2">{{ 'UNCOMING_RENOVATIONS.EstadoPoliza' | translate }}</div>
+        </div>
+
+        @for (renovacion of resultado()!.items; track renovacion.id) {
+          <div class="row" role="link" tabindex="0" (click)="goDetalles(renovacion.id)" (keydown.enter)="goDetalles(renovacion.id)">
+            <div class="col-12 col-md-2 hide">{{ 'UNCOMING_RENOVATIONS.NumeroPoliza' | translate }}</div>
+            <div class="col-12 col-md-2">{{ renovacion.numPoliza }}</div>
+            <div class="col-12 col-md-2 hide">{{ 'UNCOMING_RENOVATIONS.NombreRiesgo' | translate }}</div>
+            <div class="col-12 col-md-2">{{ renovacion.nombreRiesgo }}</div>
+            <div class="col-12 col-md-2 hide">{{ 'UNCOMING_RENOVATIONS.FechaContrato' | translate }}</div>
+            <div class="col-12 col-md-2">{{ renovacion.fechaContrato | date: 'dd/MM/yyyy' }}</div>
+            <div class="col-12 col-md-2 hide">{{ 'UNCOMING_RENOVATIONS.FechaVencimiento' | translate }}</div>
+            <div class="col-12 col-md-2">{{ renovacion.fechaVencimiento | date: 'dd/MM/yyyy' }}</div>
+            <div class="col-12 col-md-2 hide">{{ 'UNCOMING_RENOVATIONS.Importe' | translate }}</div>
+            <div class="col-12 col-md-2">{{ renovacion.importe | currency: 'EUR' : 'symbol' : '1.2-2' : 'es' }}</div>
+            <div class="col-12 col-md-2 hide">{{ 'UNCOMING_RENOVATIONS.EstadoPoliza' | translate }}</div>
+            <div class="col-12 col-md-2"><app-estado-badge [estado]="renovacion.estado" /></div>
+          </div>
+        } @empty {
+          <div class="row no-results">{{ 'RENOVATIONS.NoCoincidencias' | translate }}</div>
+        }
+      </div>
+    }
+  </section>
+
+  <nav aria-label="Paginación">
+    <div class="row pagination">
+      <div class="col-12 col-md-auto d-flex align-items-center">
+        <label for="filasPorPagina" class="pe-2">{{ 'RENOVATIONS.FilasPorPagina' | translate }}</label>
+        <select id="filasPorPagina" name="filasPorPagina" class="form-control" [(ngModel)]="tamano" (change)="cambiarTamanoPagina()">
+          @for (t of tamanosPagina; track t) {
+            <option [ngValue]="t">{{ t }}</option>
+          }
+        </select>
+      </div>
+      <div class="col-12 col-md-auto">
+        <span>{{ 'RENOVATIONS.Pagina' | translate }} {{ pagina() }} {{ 'RENOVATIONS.De' | translate }} {{ totalPaginas() }}</span>
+      </div>
+      <div class="col-12 col-md-auto page-item">
+        <button type="button" class="btn btn-outline-primary" aria-label="Primera página" [disabled]="pagina() === 1" (click)="irAPagina(1)">
+          <i class="icon-previous2"></i>
+        </button>
+        <button type="button" class="btn btn-outline-primary" aria-label="Página anterior" [disabled]="pagina() === 1" (click)="paginaAnterior()">
+          <i class="icon-backward2"></i>
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          aria-label="Página siguiente"
+          [disabled]="pagina() >= totalPaginas()"
+          (click)="paginaSiguiente()"
+        >
+          <i class="icon-forward3"></i>
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          aria-label="Última página"
+          [disabled]="pagina() >= totalPaginas()"
+          (click)="irAUltimaPagina()"
+        >
+          <i class="icon-next2"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+</main>

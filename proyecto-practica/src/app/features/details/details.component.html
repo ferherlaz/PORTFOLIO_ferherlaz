@@ -1,0 +1,160 @@
+<main>
+  <section class="breadcrumbs">
+    <a routerLink="/renovaciones">{{ 'DETAILS.DetallePoliza' | translate }}</a> /
+    <span>{{ detalle()?.renovacion?.numPoliza }}</span>
+  </section>
+
+  @if (errorCarga() === 'no-encontrada') {
+    <div class="estado-carga error">{{ 'DETAILS.NoEncontrada' | translate }}</div>
+  } @else if (errorCarga() === 'conexion') {
+    <div class="estado-carga error">
+      {{ 'API.Error' | translate }}
+      <button type="button" (click)="reintentar()">{{ 'API.Reintentar' | translate }}</button>
+    </div>
+  } @else if (cargando() || !detalle()) {
+    <div class="estado-carga">{{ 'API.Cargando' | translate }}</div>
+  } @else {
+    @let poliza = detalle()!;
+
+    <section class="controls">
+      <div class="row renovations_header justify-content-between">
+        <div class="col-12 col-md-4">
+          <h2>{{ poliza.renovacion.nombreRiesgo }}</h2>
+          <p>{{ 'UNCOMING_RENOVATIONS.NumeroPoliza' | translate }}: {{ poliza.renovacion.numPoliza }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="clientes-potenciales">
+      <div class="clientes-lista container">
+        <div class="row">
+          @for (def of filaSuperior; track def.bloque) {
+            <div class="cliente-card col-12 col-md-6">
+              <ng-container *ngTemplateOutlet="tarjeta; context: { $implicit: def, ancho: 'col-9', accionesAparte: false }" />
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="renovaciones">
+      <h2>{{ 'DETAILS.UltimasCuotas' | translate }}</h2>
+      <div>
+        <div class="row thead">
+          <div class="col-12 col-md-2">{{ 'DETAILS.FechaEmision' | translate }}</div>
+          <div class="col-12 col-md-2">{{ 'DETAILS.Periodo' | translate }}</div>
+          <div class="col-12 col-md-2">{{ 'UNCOMING_RENOVATIONS.Importe' | translate }}</div>
+          <div class="col-12 col-md-2">{{ 'RENOVATIONS.Estado' | translate }}</div>
+        </div>
+        @for (cuota of poliza.ultimasCuotas; track cuota.id) {
+          <div class="row">
+            <div class="col-12 col-md-2 hide">{{ 'DETAILS.FechaEmision' | translate }}</div>
+            <div class="col-12 col-md-2">{{ cuota.fechaEmision | date: 'dd/MM/yyyy' }}</div>
+            <div class="col-12 col-md-2 hide">{{ 'DETAILS.Periodo' | translate }}</div>
+            <div class="col-12 col-md-2">
+              {{ cuota.periodoDesde | date: 'dd/MM/yyyy' }} - {{ cuota.periodoHasta | date: 'dd/MM/yyyy' }}
+            </div>
+            <div class="col-12 col-md-2 hide">{{ 'UNCOMING_RENOVATIONS.Importe' | translate }}</div>
+            <div class="col-12 col-md-2">{{ cuota.importe | currency: 'EUR' : 'symbol' : '1.2-2' : 'es' }}</div>
+            <div class="col-12 col-md-2 hide">{{ 'RENOVATIONS.Estado' | translate }}</div>
+            <div class="col-12 col-md-2"><app-estado-badge [estado]="cuota.estado" /></div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <section class="clientes-potenciales">
+      <div class="clientes-lista container">
+        <div class="row">
+          @for (def of filaInferior; track def.bloque) {
+            <div class="cliente-card client3 col-12 col-md-6">
+              <ng-container *ngTemplateOutlet="tarjeta; context: { $implicit: def, ancho: 'col-10', accionesAparte: true }" />
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+  }
+</main>
+
+<!-- Tarjeta editable de un bloque (titular, facturación, pago, correspondencia o contacto) -->
+<ng-template #tarjeta let-def let-ancho="ancho" let-accionesAparte="accionesAparte">
+  <form (ngSubmit)="guardar(def.bloque)" novalidate>
+    <div class="cliente-card_info row">
+      <div class="cliente-card_info-text" [class]="ancho">
+        <h3>{{ def.titulo | translate }}</h3>
+        <div class="row thead">
+          @for (campo of def.campos; track campo.clave) {
+            <p>
+              <label [for]="def.bloque + '-' + campo.clave">
+                {{ esClaveTraduccion(campo.etiqueta) ? (campo.etiqueta | translate) : campo.etiqueta }}
+              </label>
+            </p>
+            <p>
+              <input
+                class="form-control"
+                [type]="campo.tipo ?? 'text'"
+                [id]="def.bloque + '-' + campo.clave"
+                [name]="campo.clave"
+                [placeholder]="esClaveTraduccion(campo.etiqueta) ? (campo.etiqueta | translate) : campo.etiqueta"
+                [disabled]="estaBloqueado(def.bloque) || estaGuardando(def.bloque)"
+                [class.is-invalid]="errorDe(def.bloque, campo.clave)"
+                [attr.aria-invalid]="errorDe(def.bloque, campo.clave) ? true : null"
+                [attr.aria-describedby]="errorDe(def.bloque, campo.clave) ? def.bloque + '-' + campo.clave + '-error' : null"
+                [(ngModel)]="formularioDe(def.bloque)[campo.clave]"
+              />
+              @if (errorDe(def.bloque, campo.clave); as mensaje) {
+                <span class="error-campo" [id]="def.bloque + '-' + campo.clave + '-error'">{{ mensaje }}</span>
+              }
+            </p>
+          }
+          @if (def.bloque === 'titular') {
+            <p>{{ 'UNCOMING_RENOVATIONS.EstadoPoliza' | translate }}</p>
+            <p><app-estado-badge [estado]="detalle()!.renovacion.estado" /></p>
+          }
+        </div>
+      </div>
+
+      @if (!accionesAparte) {
+        <div class="delete-card col-3">
+          <ng-container *ngTemplateOutlet="acciones; context: { $implicit: def.bloque }" />
+        </div>
+      }
+    </div>
+
+    @if (accionesAparte) {
+      <div class="cliente-card_info row">
+        <div class="delete-card2">
+          <ng-container *ngTemplateOutlet="acciones; context: { $implicit: def.bloque }" />
+        </div>
+      </div>
+    }
+  </form>
+</ng-template>
+
+<ng-template #acciones let-bloque>
+  @if (estaBloqueado(bloque)) {
+    <button type="button" class="delete-btn" (click)="editar(bloque)">
+      <span class="icon-share"></span>{{ 'DETAILS.Actualizar' | translate }}
+    </button>
+  } @else {
+    <button type="submit" class="delete-btn" [disabled]="estaGuardando(bloque)">
+      <span class="icon-share"></span>{{ (estaGuardando(bloque) ? 'DETAILS.Guardando' : 'DETAILS.Guardar') | translate }}
+    </button>
+    <button type="button" class="delete-btn" [disabled]="estaGuardando(bloque)" (click)="cancelar(bloque)">
+      <span class="icon-share"></span>{{ 'DETAILS.Cancelar' | translate }}
+    </button>
+  }
+
+  @switch (estadoDe(bloque)) {
+    @case ('guardado') {
+      <p class="aviso-guardado ok" role="status">✓ {{ 'DETAILS.Guardado' | translate }}</p>
+    }
+    @case ('invalido') {
+      <p class="aviso-guardado ko" role="alert">{{ 'DETAILS.RevisaCampos' | translate }}</p>
+    }
+    @case ('error') {
+      <p class="aviso-guardado ko" role="alert">{{ 'DETAILS.ErrorGuardar' | translate }}</p>
+    }
+  }
+</ng-template>

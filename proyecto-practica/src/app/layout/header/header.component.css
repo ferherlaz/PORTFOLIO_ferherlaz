@@ -1,0 +1,207 @@
+.main-header nav {
+  padding:16px 88px;
+  max-width:1440px;
+  width:100%;
+  margin:auto;
+  background:#fff;
+  border-bottom:1px solid #E6E7E8
+}
+.logo {
+  padding:0;
+  height:64px
+}
+.container-fluid img {
+  width:87.89px
+}
+.navigation a {
+  font-family:Roboto;
+  font-weight:400;
+  font-size:16px;
+  letter-spacing:0em;
+  color:#353535;
+  text-decoration:none
+}
+.navigation-links a {
+  font-weight:700;
+  padding:8px 20px
+}
+.navigation a.activo {
+  font-weight:700
+}
+.dropdown-menu {
+  padding:0;
+  border:none;
+  border-radius:12px;
+  min-width:130px
+}
+.user-options .dropdown-menu {
+  min-width:390px;
+  right:0;
+  left:auto;
+  padding-top:15px
+}
+.user-options .dropdown-menu li {
+  display:flex;
+  padding:10px 30px
+}
+.user-options .dropdown-menu li:first-child {
+  display:inherit
+}
+.user-options .dropdown-menu li a {
+  padding:10px
+}
+li.d-flex {
+  vertical-align:middle;
+  align-items:center
+}
+.dropdown-menu li {
+  border-bottom:solid 1.5px #E6E7E8;
+  padding:4px 10px
+}
+.dropdown-menu li:last-child {
+  border-bottom:none
+}
+.navigation a:hover {
+  color:#007bff
+}
+.navigation-links {
+  padding:6px 0 0;
+  margin-left:20px
+}
+.navigation-links li {
+  padding:0
+}
+.profile li.activo {
+  border-left:solid 2px #4B98D9
+}
+.user-options {
+  position:absolute;
+  right:0;
+  top:16px;
+  margin-right:235px
+}
+.user-options img, .language img {
+  padding:10px 0;
+  border-radius:8px;
+  width:24px
+}
+.profile span, .language span {
+  font-family:Roboto;
+  font-weight:400;
+  font-size:16px;
+  letter-spacing:0em;
+  line-height:19px;
+  text-align:center;
+  color:#405258
+}
+.dropdown-arrow {
+  font-size:10px;
+  margin-left:5px;
+  color:#4b98d9!important
+}
+span.icon-sphere, span.icon-user, span.icon-lock, span.icon-phone, span.icon-switch {
+  font-size:24px;
+  color:#4b98d9!important;
+  padding:10px 6px
+}
+.dropdown-toggle:after {
+  border-top:.3em solid #4B98D9
+}
+.navbar-toggler img {
+  width:24px
+}
+.navbar-toggler:focus:not(:focus-visible) {
+  box-shadow:none
+}
+.navbar-toggler {
+  border:0
+}
+@media (max-width: 768px) {
+  .offcanvas-lg .offcanvas-body {
+  display:flex;
+  flex-grow:0;
+  padding:0;
+  overflow-y:visible;
+  background-color:transparent!important;
+  flex-direction:column;
+  justify-content:space-between;
+  height:60%
+}
+.navigation-links li {
+  border-bottom:solid 1.5px #E6E7E8
+}
+.navigation-links a {
+  font-weight:400;
+  padding:14px 20px
+}
+.offcanvas-lg .offcanvas-body ul {
+  margin-left:0
+}
+.navigation-links li.activo, .profile li.activo {
+  border-left:solid 2px #4B98D9
+}
+.offcanvas-lg .offcanvas-body ul .language a {
+  margin:0 10px
+}
+.offcanvas-lg.show:not(.hiding), .offcanvas-lg.showing {
+  width:100%
+}
+.offcanvas-lg .offcanvas-body ul li.language {
+  margin-left:20px
+}
+.offcanvas-lg .offcanvas-body ul ul {
+  margin:0
+}
+.offcanvas-lg .offcanvas-body ul ul li {
+  border:0
+}
+.user-options {
+  margin-right:90px;
+  top:14px
+}
+.user-options a .text-user {
+  display:none
+}
+.user-options .dropdown-toggle:after {
+  display:none
+}
+.main-header nav {
+  padding:12px 6px
+}
+.dropdown-menu.show {
+  margin-right:-90px;
+  position:absolute
+}
+
+}
+@media (min-width: 768px) {
+  .navbar-expand-lg .navbar-toggler {
+  display:none
+}
+.navbar-expand-lg .offcanvas {
+  position:static;
+  z-index:auto;
+  flex-grow:1;
+  width:auto!important;
+  height:auto!important;
+  visibility:visible!important;
+  background-color:transparent!important;
+  border:0!important;
+  transform:none!important;
+  transition:none
+}
+.navbar-expand-lg .navbar-nav {
+  flex-direction:row
+}
+.offcanvas-lg .offcanvas-body {
+  display:flex;
+  flex-grow:0;
+  padding:0;
+  overflow-y:visible;
+  background-color:transparent!important
+}
+.navbar-expand-lg .offcanvas .offcanvas-header {
+  display:none
+}
+
+}

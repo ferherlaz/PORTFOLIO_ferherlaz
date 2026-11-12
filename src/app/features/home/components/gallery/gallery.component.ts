@@ -48,8 +48,8 @@ export class GalleryComponent {
       img: 'proyecto-practica/assets/img/hero-cover3.jpg',
       link: 'proyecto-practica/index.html',
       description: {
-        en: 'Insurance customer area developed with Angular, Bootstrap and ngx-bootstrap, featuring policy renewals with filters and sorting, policy details (holder, billing, payments, correspondence and contacts), and bilingual support (Spanish/English) with a responsive design.',
-        es: 'Área de cliente para una aseguradora desarrollada con Angular, Bootstrap y ngx-bootstrap, con listado de renovaciones de pólizas con filtros y ordenación, detalle de póliza (titular, facturación, pagos, correspondencia y contactos) y soporte bilingüe (español/inglés) con diseño responsive.',
+        en: 'Insurance customer area with an Angular 19 + Bootstrap frontend and a .NET 10 REST API (Minimal APIs, EF Core, xUnit) deployed with Docker on Render. Policy renewals with server-side filters, sorting and pagination; editable policy details (holder, billing, payment, correspondence and contact) with server-side validation of tax IDs, IBAN and postcodes; bilingual (Spanish/English) and responsive. The API sleeps on the free plan, so the first load may take up to a minute.',
+        es: 'Área de cliente para una aseguradora con frontend en Angular 19 + Bootstrap y API REST en .NET 10 (Minimal APIs, EF Core, xUnit) desplegada con Docker en Render. Renovaciones con filtros, orden y paginación en servidor; detalle de póliza editable (titular, facturación, pago, correspondencia y contacto) con validación en servidor de CIF/NIF, IBAN y código postal; bilingüe (español/inglés) y responsive. La API duerme en el plan gratuito: la primera carga puede tardar hasta un minuto.',
       },
     },
     {

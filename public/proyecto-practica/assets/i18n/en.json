@@ -1,114 +1,119 @@
 {
-
-    "HEADER":{
-        "Home": "Start",
-        "ProximasRenovaciones": "Upcoming renovations",
-        "MiPerfil": "My Profile",
-        "Texto01": "In this space you can access, modify, manage and consult everything related to your services.energy. Easy and fast.",
-        "MisDatosPersonales": "My personal data",
-        "MiContraseña": "My password",
-        "Contacto": "Contact",
-        "CerrarSesion": "Close Session",
-        "Español": "Spanish",
-        "Ingles": "English",
-        "Catalan": "Catalan",
-        "Gallego": "Galician",
-        "Euskera": "Basque"
-    },
-
-    
-    "FOOTER":{
-        "Ayuda": "Do you need help?",
-        "PoliticaCookies": "Cookie Policy",
-        "AvisoLegal": "Legal notice",
-        "PoliticaPrivacidad": "Privacy Policy"
-    },
-
-
-    "BUTTON":{
-        "VerTodas": "See all"
-    },
-
-
-    "CLIENTS":{
-        "ClientesPotenciales": "Potential clients",
-        "SeguroMoto": "Product to offer: Motorcycle insurance",
-        "SeguroCasa": "Product to offer: Home insurance",
-        "Email": "Mail",
-        "Telefono": "Phone"
-    },
-
-
-    "UNCOMING_RENOVATIONS":{
-        "NumeroPoliza": "Policy No.",
-        "NombreRiesgo": "Name of the risk",
-        "FechaContrato": "Contract date",
-        "FechaVencimiento": "Expiration date",
-        "Importe": "Amount",
-        "EstadoPoliza": "Policy status",
-        "Pendiente": "Earring",
-        "Pagada": "Paid",
-        "Vencido": "Expired"
-    },
-
-
-    "WELCOME": {        
-        "Bienvenido": "Welcome to your personal area",
-        "Texto02": "Thanks to you, more people can enjoy a safer life."
-    },
-
-
-    "RENOVATIONS": {
-        "Polizas": "Policies",
-        "Filtros": "Filters",
-        "TodasLasPolizas": "All policies",
-        "FechaValidez": "Validity date",
-        "Al": "to the",
-        "Estado": "State",
-        "TodosLosEstados": "All states",
-        "BorrarFiltros": "Clear Filters",
-        "AplicarFiltros": "Apply Filters",
-        "Resultados": "results",
-        "FiltrosAplicados": "filters applied",
-        "OrdenarPor": "Sort by:",
-        "MayorImporte": "Higher amount",
-        "MenorImporte": "Lower amount",
-        "NoCoincidencias": "No renewals were found that match your filters.",
-        "FilasPorPagina": "Rows per page:",
-        "Pagina": "Page",
-        "De": "of",
-        "IntroduceNombre": "Enter the name of the risk",
-        "IntroduceImporte": "Enter amount"
-    },
-
-
-    "DETAILS":{
-        "DetallePoliza": "Policy details",
-        "UltimasCuotas": "Latest installments",
-        "FechaEmision": "Issue date",
-        "Periodo": "Period",
-        "Titular": "Holder",
-        "Nombre": "Name",
-        "DireccionFiscal": "Tax address",
-        "Actualizar": "Update",
-        "Guardar": "Save",
-        "Cancelar": "Cancel",
-        "DireccionFacturacion": "Billing address",
-        "Direccion": "Address",
-        "Numero": "Number",
-        "Ciudad": "City",
-        "CodigoPostal": "Zip code",
-        "MetodoPago": "Payment method",
-        "TipoCobro": "Collection type",
-        "Banco": "Bank",
-        "DirCorrespondencia": "Dir. of Correspondence",
-        "Datos": "Data",
-        "Poblacion": "Population",
-        "Aclarador": "Lightener",        
-        "Contacto": "Contact",
-        "CorreoPrincipal": "Main email",
-        "Correo2": "Second email",
-        "TelefonoPrincipal": "Main phone"
-    } 
-  
+  "HEADER": {
+    "Home": "Home",
+    "ProximasRenovaciones": "Upcoming renewals",
+    "MiPerfil": "My Profile",
+    "Texto01": "In this space you can access, modify, manage and check everything related to your insurance. Easy and fast.",
+    "MisDatosPersonales": "My personal data",
+    "MiContraseña": "My password",
+    "Contacto": "Contact",
+    "CerrarSesion": "Log out",
+    "Español": "Spanish",
+    "Ingles": "English",
+    "Catalan": "Catalan",
+    "Gallego": "Galician",
+    "Euskera": "Basque"
+  },
+  "FOOTER": {
+    "Ayuda": "Do you need help?",
+    "PoliticaCookies": "Cookie Policy",
+    "AvisoLegal": "Legal notice",
+    "PoliticaPrivacidad": "Privacy Policy"
+  },
+  "BUTTON": {
+    "VerTodas": "See all"
+  },
+  "CLIENTS": {
+    "ClientesPotenciales": "Potential clients",
+    "SeguroMoto": "Product to offer: Motorcycle insurance",
+    "SeguroCasa": "Product to offer: Home insurance",
+    "Email": "Email",
+    "Telefono": "Phone",
+    "Eliminar": "Delete client",
+    "SinClientes": "No potential clients left.",
+    "ErrorBorrar": "The client could not be deleted. Please try again."
+  },
+  "UNCOMING_RENOVATIONS": {
+    "NumeroPoliza": "Policy No.",
+    "NombreRiesgo": "Insured risk",
+    "FechaContrato": "Contract date",
+    "FechaVencimiento": "Expiry date",
+    "Importe": "Amount",
+    "EstadoPoliza": "Policy status",
+    "Pendiente": "Pending",
+    "Pagada": "Paid",
+    "Vencido": "Expired",
+    "SinProximas": "No upcoming renewals."
+  },
+  "WELCOME": {
+    "Bienvenido": "Welcome to your personal area",
+    "Texto02": "Thanks to you, more people can enjoy a safer life."
+  },
+  "RENOVATIONS": {
+    "Polizas": "Policies",
+    "Filtros": "Filters",
+    "Buscar": "Insured risk or policy No.",
+    "IntroduceBusqueda": "E.g.: Seat or 7584",
+    "FechaValidez": "Expiry date",
+    "Al": "to",
+    "Estado": "Status",
+    "TodosLosEstados": "All statuses",
+    "ImporteEntre": "Amount between",
+    "Minimo": "Minimum",
+    "Maximo": "Maximum",
+    "BorrarFiltros": "Clear filters",
+    "AplicarFiltros": "Apply filters",
+    "Resultados": "results",
+    "FiltrosAplicados": "filters applied",
+    "OrdenarPor": "Sort by:",
+    "MayorImporte": "Highest amount",
+    "MenorImporte": "Lowest amount",
+    "VencimientoProximo": "Soonest expiry",
+    "VencimientoLejano": "Latest expiry",
+    "NoCoincidencias": "No renewals match your filters.",
+    "FilasPorPagina": "Rows per page:",
+    "Pagina": "Page",
+    "De": "of",
+    "Desde": "from",
+    "Hasta": "to"
+  },
+  "DETAILS": {
+    "DetallePoliza": "Policy details",
+    "UltimasCuotas": "Latest instalments",
+    "FechaEmision": "Issue date",
+    "Periodo": "Period",
+    "Titular": "Policyholder",
+    "Nombre": "Name",
+    "DireccionFiscal": "Tax address",
+    "Actualizar": "Edit",
+    "Guardar": "Save",
+    "Guardando": "Saving…",
+    "Cancelar": "Cancel",
+    "Guardado": "Changes saved",
+    "RevisaCampos": "Please check the highlighted fields.",
+    "ErrorGuardar": "The changes could not be saved. Please try again.",
+    "NoEncontrada": "There is no policy with that identifier.",
+    "DireccionFacturacion": "Billing address",
+    "Direccion": "Address",
+    "Numero": "Number",
+    "Ciudad": "City",
+    "CodigoPostal": "Postcode",
+    "MetodoPago": "Payment method",
+    "TipoCobro": "Collection type",
+    "Banco": "Bank",
+    "DirCorrespondencia": "Mailing address",
+    "Datos": "Recipient",
+    "Poblacion": "Town",
+    "Aclarador": "Floor / door",
+    "Contacto": "Contact",
+    "CorreoPrincipal": "Main email",
+    "Correo2": "Second email",
+    "TelefonoPrincipal": "Main phone"
+  },
+  "API": {
+    "Despertando": "Connecting to the server… The API runs on a free plan and may take up to a minute to start the first time.",
+    "Error": "Could not reach the API. Check your connection and try again.",
+    "Reintentar": "Retry",
+    "Cargando": "Loading…"
+  }
 }

@@ -1,0 +1,52 @@
+<section class="clientes-potenciales">
+  <h2>{{ 'CLIENTS.ClientesPotenciales' | translate }}</h2>
+
+  @if (error()) {
+    <div class="estado-carga error">
+      {{ 'API.Error' | translate }}
+      <button type="button" (click)="cargar()">{{ 'API.Reintentar' | translate }}</button>
+    </div>
+  } @else if (clientes() === null) {
+    <div class="estado-carga">{{ 'API.Cargando' | translate }}</div>
+  } @else {
+    <div class="clientes-lista container">
+      @if (errorBorrar()) {
+        <p class="aviso-error" role="alert">{{ 'CLIENTS.ErrorBorrar' | translate }}</p>
+      }
+      <div class="row">
+        @for (cliente of clientes(); track cliente.id) {
+          <div class="cliente-card col-12 col-md-6">
+            <div class="cliente-card_info row">
+              <div class="cliente-card_info-text col-10">
+                <h3>{{ cliente.nombre }}</h3>
+                <p>{{ claveProducto[cliente.producto] | translate }}</p>
+              </div>
+              <div class="delete-card col-2">
+                <button
+                  class="delete-btn"
+                  type="button"
+                  [attr.aria-label]="'CLIENTS.Eliminar' | translate"
+                  [title]="'CLIENTS.Eliminar' | translate"
+                  [disabled]="borrando() === cliente.id"
+                  (click)="borrarCliente(cliente)"
+                >
+                  <span class="icon-bin"></span>
+                </button>
+              </div>
+            </div>
+            <div class="cliente-card_contact row">
+              <div class="div col-12 col-md-5">
+                <p>{{ 'CLIENTS.Email' | translate }}: {{ cliente.email }}</p>
+              </div>
+              <div class="div col-12 col-md-5">
+                <p>{{ 'CLIENTS.Telefono' | translate }}: {{ cliente.telefono }}</p>
+              </div>
+            </div>
+          </div>
+        } @empty {
+          <div class="estado-carga">{{ 'CLIENTS.SinClientes' | translate }}</div>
+        }
+      </div>
+    </div>
+  }
+</section>

@@ -1,0 +1,42 @@
+<section class="renovaciones">
+  <h2>{{ 'HEADER.ProximasRenovaciones' | translate }}</h2>
+
+  @if (error()) {
+    <div class="estado-carga error">
+      {{ 'API.Error' | translate }}
+      <button type="button" (click)="cargar()">{{ 'API.Reintentar' | translate }}</button>
+    </div>
+  } @else if (renovaciones() === null) {
+    <div class="estado-carga">{{ 'API.Cargando' | translate }}</div>
+  } @else {
+    <div>
+      <div class="row thead">
+        <div class="col-12 col-md-2">{{ 'UNCOMING_RENOVATIONS.NumeroPoliza' | translate }}</div>
+        <div class="col-12 col-md-2">{{ 'UNCOMING_RENOVATIONS.NombreRiesgo' | translate }}</div>
+        <div class="col-12 col-md-2">{{ 'UNCOMING_RENOVATIONS.FechaContrato' | translate }}</div>
+        <div class="col-12 col-md-2">{{ 'UNCOMING_RENOVATIONS.FechaVencimiento' | translate }}</div>
+        <div class="col-12 col-md-2">{{ 'UNCOMING_RENOVATIONS.Importe' | translate }}</div>
+        <div class="col-12 col-md-2">{{ 'UNCOMING_RENOVATIONS.EstadoPoliza' | translate }}</div>
+      </div>
+
+      @for (r of renovaciones(); track r.id) {
+        <div class="row fila" role="link" tabindex="0" (click)="verDetalle(r.id)" (keydown.enter)="verDetalle(r.id)">
+          <div class="col-12 col-md-2 hide">{{ 'UNCOMING_RENOVATIONS.NumeroPoliza' | translate }}</div>
+          <div class="col-12 col-md-2">{{ r.numPoliza }}</div>
+          <div class="col-12 col-md-2 hide">{{ 'UNCOMING_RENOVATIONS.NombreRiesgo' | translate }}</div>
+          <div class="col-12 col-md-2">{{ r.nombreRiesgo }}</div>
+          <div class="col-12 col-md-2 hide">{{ 'UNCOMING_RENOVATIONS.FechaContrato' | translate }}</div>
+          <div class="col-12 col-md-2">{{ r.fechaContrato | date: 'dd/MM/yyyy' }}</div>
+          <div class="col-12 col-md-2 hide">{{ 'UNCOMING_RENOVATIONS.FechaVencimiento' | translate }}</div>
+          <div class="col-12 col-md-2">{{ r.fechaVencimiento | date: 'dd/MM/yyyy' }}</div>
+          <div class="col-12 col-md-2 hide">{{ 'UNCOMING_RENOVATIONS.Importe' | translate }}</div>
+          <div class="col-12 col-md-2">{{ r.importe | currency: 'EUR' : 'symbol' : '1.2-2' : 'es' }}</div>
+          <div class="col-12 col-md-2 hide">{{ 'UNCOMING_RENOVATIONS.EstadoPoliza' | translate }}</div>
+          <div class="col-12 col-md-2"><app-estado-badge [estado]="r.estado" /></div>
+        </div>
+      } @empty {
+        <div class="estado-carga">{{ 'UNCOMING_RENOVATIONS.SinProximas' | translate }}</div>
+      }
+    </div>
+  }
+</section>
