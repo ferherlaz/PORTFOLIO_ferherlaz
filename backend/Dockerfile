@@ -2,6 +2,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
+# Primero solo los proyectos y la configuración común: la restauración se cachea mientras no cambien.
+COPY Directory.Build.props Directory.Packages.props ./
+COPY src/ProyectoPractica.Domain/ProyectoPractica.Domain.csproj src/ProyectoPractica.Domain/
+COPY src/ProyectoPractica.Application/ProyectoPractica.Application.csproj src/ProyectoPractica.Application/
+COPY src/ProyectoPractica.Infrastructure/ProyectoPractica.Infrastructure.csproj src/ProyectoPractica.Infrastructure/
 COPY src/ProyectoPractica.Api/ProyectoPractica.Api.csproj src/ProyectoPractica.Api/
 RUN dotnet restore src/ProyectoPractica.Api/ProyectoPractica.Api.csproj
 

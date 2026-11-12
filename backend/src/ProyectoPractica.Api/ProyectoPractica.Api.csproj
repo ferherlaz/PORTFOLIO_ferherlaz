@@ -1,22 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
+  <!-- Capa de presentación HTTP y raíz de composición (único sitio que conoce Infrastructure). -->
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>ProyectoPractica.Api</RootNamespace>
-    <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.15" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.15" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.3" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="9.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" />
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="ProyectoPractica.Api.Tests" />
+    <ProjectReference Include="..\ProyectoPractica.Application\ProyectoPractica.Application.csproj" />
+    <ProjectReference Include="..\ProyectoPractica.Infrastructure\ProyectoPractica.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

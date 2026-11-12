@@ -27,8 +27,14 @@ Content-Type: application/json
 
 { "nombre": "Grup Sisquella", "cif": "B63249544", "tipoCobro": "Al contado", "iban": "ES0000000000000000000000", "banco": "CaixaBank" }
 
+### Póliza inexistente → 404
+GET {{api}}/api/polizas/999
+
 ### Clientes potenciales
 GET {{api}}/api/clientes-potenciales
 
 ### Borrar cliente potencial
 DELETE {{api}}/api/clientes-potenciales/1
+
+### Estado del servicio
+GET {{api}}/health

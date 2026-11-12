@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Detalles técnicos: EF Core, repositorios, consultas de lectura y semilla de datos. -->
+  <PropertyGroup>
+    <RootNamespace>ProyectoPractica.Infrastructure</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProyectoPractica.Application\ProyectoPractica.Application.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Casos de uso (CQRS). Depende solo de Domain; define las abstracciones que implementa Infrastructure. -->
+  <PropertyGroup>
+    <RootNamespace>ProyectoPractica.Application</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProyectoPractica.Domain\ProyectoPractica.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
