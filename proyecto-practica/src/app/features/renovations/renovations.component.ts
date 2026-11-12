@@ -9,6 +9,7 @@ import { catchError, of, Subject, switchMap, tap } from 'rxjs';
 import { ConsultaRenovaciones, ESTADOS, EstadoPoliza, Orden, Pagina, Renovacion } from '../../core/models';
 import { RenovacionesService } from '../../core/services/renovaciones.service';
 import { EstadoBadgeComponent } from '../../shared/estado-badge.component';
+import { OpcionSelect, SelectComponent } from '../../shared/select.component';
 
 interface Filtros {
   q?: string;
@@ -27,7 +28,7 @@ type ClaveFiltro = keyof Filtros;
  */
 @Component({
   selector: 'app-renovations',
-  imports: [FormsModule, RouterLink, TranslatePipe, DatePipe, CurrencyPipe, BsDatepickerModule, EstadoBadgeComponent],
+  imports: [FormsModule, RouterLink, TranslatePipe, DatePipe, CurrencyPipe, BsDatepickerModule, EstadoBadgeComponent, SelectComponent],
   templateUrl: './renovations.component.html',
   styleUrl: './renovations.component.css',
 })
@@ -43,8 +44,20 @@ export class RenovationsComponent implements OnInit {
     isAnimated: false,
     showWeekNumbers: false,
   };
-  protected readonly estados = ESTADOS;
-  protected readonly tamanosPagina = [5, 10, 15, 20];
+  protected readonly opcionesEstado: OpcionSelect<EstadoPoliza | undefined>[] = [
+    { valor: undefined, etiqueta: 'RENOVATIONS.TodosLosEstados' },
+    ...ESTADOS.map((estado) => ({ valor: estado, etiqueta: `UNCOMING_RENOVATIONS.${estado}` })),
+  ];
+  protected readonly opcionesOrden: OpcionSelect<Orden>[] = [
+    { valor: 'importe_desc', etiqueta: 'RENOVATIONS.MayorImporte' },
+    { valor: 'importe_asc', etiqueta: 'RENOVATIONS.MenorImporte' },
+    { valor: 'vencimiento_asc', etiqueta: 'RENOVATIONS.VencimientoProximo' },
+    { valor: 'vencimiento_desc', etiqueta: 'RENOVATIONS.VencimientoLejano' },
+  ];
+  protected readonly opcionesTamano: OpcionSelect<number>[] = [5, 10, 15, 20].map((t) => ({
+    valor: t,
+    etiqueta: String(t),
+  }));
 
   /** Borrador del formulario lateral; solo se aplica al pulsar "Aplicar filtros". */
   protected borrador: Filtros = {};

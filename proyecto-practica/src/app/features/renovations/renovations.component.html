@@ -99,12 +99,13 @@
 
               <div class="form-group">
                 <label for="estado">{{ 'RENOVATIONS.Estado' | translate }}</label>
-                <select id="estado" name="estado" class="form-select" [(ngModel)]="borrador.estado">
-                  <option [ngValue]="undefined">{{ 'RENOVATIONS.TodosLosEstados' | translate }}</option>
-                  @for (estado of estados; track estado) {
-                    <option [ngValue]="estado">{{ 'UNCOMING_RENOVATIONS.' + estado | translate }}</option>
-                  }
-                </select>
+                <app-select
+                  inputId="estado"
+                  name="estado"
+                  variante="formulario"
+                  [opciones]="opcionesEstado"
+                  [(ngModel)]="borrador.estado"
+                />
               </div>
 
               <div class="formControls">
@@ -181,12 +182,13 @@
       <div class="col-12 col-md-3 text-end ordenarPrimero">
         <div class="sort-options">
           <label for="sort">{{ 'RENOVATIONS.OrdenarPor' | translate }}</label>
-          <select id="sort" name="sort" [(ngModel)]="orden" (change)="cambiarOrden()">
-            <option value="importe_desc">{{ 'RENOVATIONS.MayorImporte' | translate }}</option>
-            <option value="importe_asc">{{ 'RENOVATIONS.MenorImporte' | translate }}</option>
-            <option value="vencimiento_asc">{{ 'RENOVATIONS.VencimientoProximo' | translate }}</option>
-            <option value="vencimiento_desc">{{ 'RENOVATIONS.VencimientoLejano' | translate }}</option>
-          </select>
+          <app-select
+            inputId="sort"
+            alinear="derecha"
+            [opciones]="opcionesOrden"
+            [ngModel]="orden"
+            (ngModelChange)="orden = $event; cambiarOrden()"
+          />
         </div>
       </div>
     </div>
@@ -237,11 +239,12 @@
     <div class="row pagination">
       <div class="col-12 col-md-auto d-flex align-items-center">
         <label for="filasPorPagina" class="pe-2">{{ 'RENOVATIONS.FilasPorPagina' | translate }}</label>
-        <select id="filasPorPagina" name="filasPorPagina" class="form-control" [(ngModel)]="tamano" (change)="cambiarTamanoPagina()">
-          @for (t of tamanosPagina; track t) {
-            <option [ngValue]="t">{{ t }}</option>
-          }
-        </select>
+        <app-select
+          inputId="filasPorPagina"
+          [opciones]="opcionesTamano"
+          [ngModel]="tamano"
+          (ngModelChange)="tamano = $event; cambiarTamanoPagina()"
+        />
       </div>
       <div class="col-12 col-md-auto">
         <span>{{ 'RENOVATIONS.Pagina' | translate }} {{ pagina() }} {{ 'RENOVATIONS.De' | translate }} {{ totalPaginas() }}</span>
