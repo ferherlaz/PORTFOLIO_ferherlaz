@@ -1,0 +1,34 @@
+@api = http://localhost:5080
+
+### Listado paginado: pendientes, más caras primero
+GET {{api}}/api/renovaciones?estado=Pendiente&orden=importe_desc&pagina=1&tamano=5
+
+### Filtro por rango de vencimiento y texto
+GET {{api}}/api/renovaciones?q=seat&desde=2026-01-01&hasta=2027-12-31
+
+### Error de validación (orden inválido y página 0)
+GET {{api}}/api/renovaciones?orden=precio&pagina=0
+
+### Próximas renovaciones (inicio)
+GET {{api}}/api/renovaciones/proximas?limite=3
+
+### Detalle de una póliza
+GET {{api}}/api/polizas/1
+
+### Guardar titular (válido)
+PUT {{api}}/api/polizas/1/titular
+Content-Type: application/json
+
+{ "cif": "12345678Z", "nombre": "José Martínez", "dirFiscal": "Calle Casanova 128, Barcelona" }
+
+### Guardar pago (IBAN inválido → 400 con ProblemDetails)
+PUT {{api}}/api/polizas/1/pago
+Content-Type: application/json
+
+{ "nombre": "Grup Sisquella", "cif": "B63249544", "tipoCobro": "Al contado", "iban": "ES0000000000000000000000", "banco": "CaixaBank" }
+
+### Clientes potenciales
+GET {{api}}/api/clientes-potenciales
+
+### Borrar cliente potencial
+DELETE {{api}}/api/clientes-potenciales/1
