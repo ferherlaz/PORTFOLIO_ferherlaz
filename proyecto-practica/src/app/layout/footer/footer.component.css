@@ -90,3 +90,25 @@ span.icon-envelop, span.icon-phone {
 }
 
 }
+
+/* Crédito del autor, común a todos los proyectos del portfolio */
+.footer-credito {
+  margin: 16px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid #E6E7E8;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 14px;
+  line-height: 20px;
+  color: #686868;
+}
+.footer-credito .acento {
+  color: #4b98d9;
+}
+.footer-credito .separador {
+  margin: 0 6px;
+  color: #4b98d9;
+}
+.footer-credito .corazon {
+  font-size: 13px;
+}

@@ -35,6 +35,11 @@ import { TranslatePipe } from '@ngx-translate/core';
           <div class="footer-links2"><p>© 2022 SecuraInsurance</p></div>
         </div>
       </div>
+      <p class="footer-credito">
+        <span class="gris">© 2026</span>
+        <span class="separador" aria-hidden="true">|</span>
+        <span class="acento">Created with <span class="corazon" role="img" aria-label="love">❤️</span> by Fernando Hernández Lázaro. All rights reserved.</span>
+      </p>
     </footer>
   `,
   styleUrl: './footer.component.css',
